@@ -99,3 +99,38 @@ private hosted zone -- traffic is routed within an aws vpc
 
 
 
+# Some more topics – just for your reference only – Good to know below topics before interview
+
+Do you have experience in any other CA tools like Jenkins besides GitHub actions?   
+How can you instruct your pipeline to schedule a job on a specific node that has J D K 70, when it is only available on one node out of ten?   
+Which tool do you use to build Java projects?   
+Where can we find the second XML file?   
+Where will you store your credentials? Username and password for Jenkins, Docker registry, etc.?   
+Where will you store your secret information in GitHub actions?   
+Where will you attach that role in GI actions?   
+Is it possible to store your secrets in the GitHub actions itself?
+How do you write custom actions and integrate them into your pipeline?  
+Does customer action support GitHub?   
+Do you have experience in configuration management tools like Ansible?   
+Do you need to install anything during the provisioning process using Terraform?  
+Are you deploying in Kubernetes or in EC2?   
+Do you have any knowledge of how Jinja templates work?   
+How do you execute the command to install the next?   
+How would you rate your Terraform skills on a scale of one to five?   
+Can you give me an example? Why do we need user data?   
+How do you refer to the captured output in the Terraform resource?   
+How do you refer to the value of the secret that was captured in the resource block below?
+What is the difference between local variables and normal variables that are defined in a variable in TensorFlow?   
+Create a security group with the security group resource. For example, when you create a security group, how do you refer to the security group ID in the resource called Easy Two ?
+How do you call the output of code written in another module into a different module?   
+How do you read the map if you use count?   
+Have you used any provisioners in Terraform?   
+After creating an instance, execute commands on it.
+Can you explain how you deploy your workloads using EKS and GKE?   
+Have you used a WSS load balance controller?   
+How do you restart your deployment?   
+Where do you store secrets in Kubernetes?   
+What is the advantage of using ASVPCI in this case?   
+Have you used autoscaling groups in AWS?   
+How do you get the top 10 lines of your file?   
+How do you access the live logs of your file, such as TOCA log or Apache do log, to see exactly what is being recorded in the file?   

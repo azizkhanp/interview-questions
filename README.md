@@ -1,5 +1,5 @@
 # interview-questions
-
+# linux:
 How to set a username and password to never expires
 #chage -M -1 username
 
@@ -7,7 +7,7 @@ to list,all the files opened by particular PID
 #lsof -p PID
 
 we are unable to unmount the file system.what are the reason behind it
-# ur in the same dir
+#ur in the same dir
 #some users are using files in dir
 #some files are open in dir
 
@@ -65,10 +65,8 @@ sed 's/aziz/Khan/g' <filename>    # it will search file aziz word in file and re
 
 sed -i 's/aziz/Khan/g' <filename> # it will save changes in file
 
-# it will replace aziz with Khan in 2&3 lines
+#it will replace aziz with Khan in 2&3 lines
 sed '2,3 s/aziz/Khan' <filename>
-
-linux:
 
 1.Diff b/w bash and dash
 2.Diff b/w hardlink and softlink
@@ -87,7 +85,7 @@ H/w --> kernel --> shell --> utilities
 10.grep cmnd usage
 11.password policy agent in linux
 
-AWS
+# AWS
 1.Route53 type
 public hosted zone -- traffic is routed on the internet
 private hosted zone -- traffic is routed within an aws vpc

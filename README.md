@@ -1,10 +1,8 @@
 # interview-questions
 # linux:
-How to set a username and password to never expires
-#chage -M -1 username
+How to set a username and password to never expires  chage -M -1 username
 
-to list,all the files opened by particular PID
-#lsof -p PID
+to list,all the files opened by particular PID lsof -p PID
 
 we are unable to unmount the file system.what are the reason behind it
 #ur in the same dir

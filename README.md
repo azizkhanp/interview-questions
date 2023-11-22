@@ -79,7 +79,50 @@ sed -i 's/aziz/Khan/g' <filename> # it will save changes in file
 #it will replace aziz with Khan in 2&3 lines
 sed '2,3 s/aziz/Khan' <filename>
 
-**#k8s**
+# k8s
+1. k8s pod vs docker container
+  container is a lightweight, standalone, and executable software package that includes everything needed to run a piece of software, including the code, runtime, libraries, and system tools.
+  Designed for packaging and running a single application or service.
+
+  A Pod is the smallest deployable unit in Kubernetes and represents a single instance of a running process in a cluster. 
+  It can contain one or more containers that are tightly coupled and share the same network namespace, storage, and other resources.
+  Designed for deploying and managing groups of containers that need to work together.
+2. what is the init container? when it runs? why do we use them? 
+   initialization tasks that need to be completed before the application containers start. Once all init containers have completed their task successfully, the main application containers are started.
+   Init containers share the same volume as the main application containers. 
+   Once an init container completes its task, it terminates
+  use-cases: 
+    Downloading application dependencies, setting up configuration files, or performing database schema migrations.
+    Waiting for a database to be ready or waiting for a service to become available.
+    
+3. what is a stateful set? when we choose it? 
+   StatefulSets are designed to provide guarantees about the ordering and uniqueness of pods, making them suitable for applications that require stable network identifiers, persistent storage, and ordered deployment and scaling.
+  Use StatefulSets when deploying stateful applications that require unique identifiers, stable network identities, and persistent storage. Examples include databases (like MySQL, PostgreSQL), messaging queues, and other applications that manage state.
+  When the order in which pods are deployed and started matters, StatefulSets are a good choice. This is crucial for applications where one instance depends on the availability of another.
+
+4. Diff b/w config maps and secrets? 
+   ConfigMaps: Store data in key-value pairs. The values can be strings or files. 
+    Designed for storing non-sensitive configuration data such as environment variables, configuration files
+   Secrets: Store data in key-value pairs similar to ConfigMaps, but the data is treated as base64-encoded.
+    Designed for storing sensitive information such as passwords, API tokens, or encryption keys.
+5. Deployment strategies? Diff b/w rolling updates vs blue-green vs canary?
+  Rolling Updates: updating 1 pod at a time to the new version.  It minimizes downtime by gradually shifting traffic to the updated pods. It consumes a lot of time to complete the upgrade.
+  Blue-Green Deployments: maintaining two separate environments (Blue and Green), with one active at a time. The deployment consists of switching traffic from the current active environment (Blue) to the new version (Green).
+  Canary Deployments: This involves releasing a new version of the application to a subset of users or instances before a full release. conditional routing to control which users receive the new version.
+6. How to set up RBAC(Role-based access control)  for a user or service account? 
+    Deploy below with manifest files.
+   a. Create a Service Account: service account name
+   b. Create a Role: what resources, permission like get, list, create, delete
+   c. Bind the Role to the Service Account: attach Role to SA
+   d. Deploy pod/deployments using a service account
+
+7. multi-tendency k8s cluster? 
+   A multi-tenancy Kubernetes cluster is a cluster that is shared by multiple tenants or user groups, each running their own workloads and applications.
+    Namespace Isolation:Each tenant can have its own namespace, and resources within a namespace are isolated from other namespaces.
+    RBAC: Implement RBAC to control and restrict access to resources within each namespace.
+    Resource Quotas and Limits:Set up resource quotas and limits at the namespace level to prevent resource hogging and ensure fair allocation of resources among tenants.
+8. Horizontal pod scaling? 
+   In Kubernetes, you can use the Horizontal Pod Autoscaler (HPA) to automatically adjust the number of pods in a deployment or replica set based on observed metrics. Common metrics include CPU utilization and custom metrics.
 
 # AWS
 1.Route53 type

@@ -46,6 +46,20 @@ S-setuid and non-executable
 #e2fsck -f /dev/sda5
 #mount -t ext4 /dev/sda5 /new
 
+15. what is a Linux kernel? Can we edit it?
+16. what are system utilities?
+17. what are system libraries?
+18. Diff b/w unix vs Linux?
+19. what is heap memory(heap space)?
+20. swap space?
+21. linux loader(LILO)?
+22. what are modes in linux? (mode 0....)
+23. Diff b/w cron vs ana-cron?
+24. user account locked?
+25. what are ACL in linux?
+26. How do you get the top 10 lines of your file?   
+27. How do you access the live logs of your file, such as TOCA log or Apache do log, to see exactly what is being recorded in the file?  
+
 1. Diff b/w bash and dash
 2.Diff b/w hardlink and softlink
 3. what is daemons? 
@@ -124,6 +138,9 @@ sed '2,3 s/aziz/Khan' <filename>
 8. Horizontal pod scaling? 
    In Kubernetes, you can use the Horizontal Pod Autoscaler (HPA) to automatically adjust the number of pods in a deployment or replica set based on observed metrics. Common metrics include CPU utilization and custom metrics.
 
+9. How do you restart your deployment?
+10. Where do you store secrets in Kubernetes?  
+
 # AWS
 1.Route53 type
 public hosted zone -- traffic is routed on the internet
@@ -140,36 +157,35 @@ private hosted zone -- traffic is routed within an aws vpc
 
 # Some more topics – just for your reference only – Good to know below topics before interview
 
-Do you have experience in any other CA tools like Jenkins besides GitHub actions?   
-How can you instruct your pipeline to schedule a job on a specific node that has J D K 70, when it is only available on one node out of ten?   
-Which tool do you use to build Java projects?   
-Where can we find the second XML file?   
+# Devops
+What are Tech stack using in your DevOps project?
+what is the flow of your CICD or Steps in Jenkins build?
+How can you instruct your pipeline to schedule a job on a specific node that has J D K 70, when it is only available on one node out of ten? 
+Which tool do you use to build Java projects? 
 Where will you store your credentials? Username and password for Jenkins, Docker registry, etc.?   
-Where will you store your secret information in GitHub actions?   
-Where will you attach that role in GI actions?   
-Is it possible to store your secrets in the GitHub actions itself?
-How do you write custom actions and integrate them into your pipeline?  
-Does customer action support GitHub?   
+How do you write custom actions and integrate them into your pipeline? 
+What is sonarqube? why your using it?
+Git branch Strategies?  
 Do you have experience in configuration management tools like Ansible?   
 Do you need to install anything during the provisioning process using Terraform?  
-Are you deploying in Kubernetes or in EC2?   
-Do you have any knowledge of how Jinja templates work?   
+what is state file in terraform?
+what is state-lock mechanism in terraform?
+what is external-data-block in terraform?
+null resources in terraform?
+if state file is deleted how to recover it?
+what is import in terraform?
+what is dynamic value value at run time in terraform?
+Are you deploying in Kubernetes or in EC2?     
 How do you execute the command to install the next?   
-How would you rate your Terraform skills on a scale of one to five?   
 Can you give me an example? Why do we need user data?   
 How do you refer to the captured output in the Terraform resource?   
 How do you refer to the value of the secret that was captured in the resource block below?
-What is the difference between local variables and normal variables that are defined in a variable in TensorFlow?   
+What is the difference between local variables and normal variables in terraform?   
 Create a security group with the security group resource. For example, when you create a security group, how do you refer to the security group ID in the resource called Easy Two ?
 How do you call the output of code written in another module into a different module?   
 How do you read the map if you use count?   
 Have you used any provisioners in Terraform?   
 After creating an instance, execute commands on it.
 Can you explain how you deploy your workloads using EKS and GKE?   
-Have you used a WSS load balance controller?   
-How do you restart your deployment?   
-Where do you store secrets in Kubernetes?   
-What is the advantage of using ASVPCI in this case?   
 Have you used autoscaling groups in AWS?   
-How do you get the top 10 lines of your file?   
-How do you access the live logs of your file, such as TOCA log or Apache do log, to see exactly what is being recorded in the file?   
+ 

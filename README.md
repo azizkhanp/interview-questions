@@ -145,6 +145,13 @@ sed '2,3 s/aziz/Khan' <filename>
 1.Route53 type
 public hosted zone -- traffic is routed on the internet
 private hosted zone -- traffic is routed within an aws vpc
+Latency-based routing in AWS Route53
+How AWS N/W firewall protect VPC?
+Stateful vs State-less firewall in AWS?
+When do we use spot or on-demand EC2?
+what is ECS? cluster? EC2 vs Fragent?
+
+
 
 
 1.Grafana alert rule
@@ -161,6 +168,7 @@ private hosted zone -- traffic is routed within an aws vpc
 What are Tech stack using in your DevOps project?
 what is the flow of your CICD or Steps in Jenkins build?
 How can you instruct your pipeline to schedule a job on a specific node that has J D K 70, when it is only available on one node out of ten? 
+If your CICD was aborted by you due to it continuously running bez of a parameter issue? when u run again same CICD pipeline what will happen? State-lock file.
 Which tool do you use to build Java projects? 
 Where will you store your credentials? Username and password for Jenkins, Docker registry, etc.?   
 How do you write custom actions and integrate them into your pipeline? 
@@ -170,6 +178,9 @@ Do you have experience in configuration management tools like Ansible?
 Do you need to install anything during the provisioning process using Terraform?  
 what is state file in terraform?
 what is state-lock mechanism in terraform?
+what do you understand about data_source? 
+Modules ? meta argument in a module?
+parent module and child module?
 what is external-data-block in terraform?
 null resources in terraform?
 if state file is deleted how to recover it?

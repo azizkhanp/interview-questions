@@ -139,7 +139,15 @@ sed '2,3 s/aziz/Khan' <filename>
    In Kubernetes, you can use the Horizontal Pod Autoscaler (HPA) to automatically adjust the number of pods in a deployment or replica set based on observed metrics. Common metrics include CPU utilization and custom metrics.
 
 9. How do you restart your deployment?
-10. Where do you store secrets in Kubernetes?  
+10. Kubectl describe vs kubectl logs ?
+11. Where do you store secrets in Kubernetes?
+12. Error codes or diff status codes in k8s and also how do u debug or find what's the issue?
+CreateContainerConfigError: 
+Pending: insufficient resources(namespace limits, pod limits), if affinity rule not match, pv storage
+OOMKilled: if the container or pod exceeds its memory limit, k8s terminate the container
+CrashLoopBackOff: config error, resource constraints, dependency issues, app error
+Running(but status id 0/1): issue with liveness or readiness probe
+
 
 # AWS
 1.Route53 type
@@ -166,6 +174,7 @@ what is ECS? cluster? EC2 vs Fragent?
 
 # Devops
 What are Tech stack using in your DevOps project?
+Explain the complete CICD process that has been followed in the your project?
 what is the flow of your CICD or Steps in Jenkins build?
 How can you instruct your pipeline to schedule a job on a specific node that has J D K 70, when it is only available on one node out of ten? 
 If your CICD was aborted by you due to it continuously running bez of a parameter issue? when u run again same CICD pipeline what will happen? State-lock file.
@@ -176,6 +185,8 @@ What is sonarqube? why your using it?
 Git branch Strategies?  
 Do you have experience in configuration management tools like Ansible?   
 Do you need to install anything during the provisioning process using Terraform?  
+How would you save any particular resource while destroying the complete infra.?
+how to export data from one module to another module?
 what is state file in terraform?
 what is state-lock mechanism in terraform?
 what do you understand about data_source? 

@@ -83,8 +83,31 @@ Check with the central repo team
 7. swap space
 8. grep cmnd usage
 9. password policy agent in linux
-PAM --> Check password quality, reusing the same passwords, password aging, /etc/pam.d/ directory. 
+PAM --> Check password quality, reusing the same passwords, password aging, /etc/pam.d/ directory.
 
+10. user not able to log in remote server(SSH)?
+-ssh is running
+-Check port of SSH
+-User has permission to login to server
+-Publickey authentication/ authorizeskeys
+
+11.how to give permission to a particular user to access a particular file?
+
+- setfacl -m u:<user_name> <filename>
+
+12. how to disable root a/c
+usermod -s /sbin/nologin root
+
+13. How to change id of user? /etc/login.def
+
+14. root user not able to delete a file
+chattr -i <f_n>
+chattr +i <file_name>
+
+15. how to check the top 10 space consuming files/dir in a particular dir
+# du -sh * | sort -rn | head
+
+rpm -qf <file_name> # to get package name of filename
 
 awk -F : '{ if ($<position_in_line_to_check> ~ <content_to_search>) print $<position_in_line>}' <File_Name>
 sed 's/aziz/Khan/g' <filename>    # it will search file aziz word in file and replace it with Khan and display output on terminal

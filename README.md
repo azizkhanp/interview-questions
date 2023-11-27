@@ -5,8 +5,9 @@
 3. we are unable to unmount the file system. What are the reasons behind it
 #ur in the same dir
 #some users are using files in dir
-#some files are open in dir
+#some files are open in dir (lsof +D /path/to/your/directory)
 4. what could be the reason if the server takes more time after reboot?
+   Hardware issue / Service start delay / N/W issue / Filesystem checks / Resources issue
 5. we're trying to create the file under any partition but we're getting a permission denied alert.
 what could be the reason? however, no space issue and no permission issue
 #may be inode
@@ -62,22 +63,22 @@ S-setuid and non-executable
 
 1. Diff b/w bash and dash
 2.Diff b/w hardlink and softlink
-3. what is daemons? 
+3. what are daemons? 
 it is a process run in BG without user interaction.
-many daemons are config to start automatically when the sys is boots up and continuesly running in BG until the sys is shutdown.
+many daemons are configured to start automatically when the sys boots up and continuously running in BG until the sys is shut down.
 ex: cron,sshd
-4. Daily tasks in linux
---> user management,LVM , package management, OS patch
-5. architecture of linux
+4. Daily tasks in Linux
+--> user management, LVM, package management, OS patch
+5. architecture of Linux
 H/w --> kernel --> shell --> utilities
 
-6. if yum update is not pulling lib, how do you resolve issue? 
+6. if yum update is not pulling lib, how do you resolve the issue? 
 Check Yum Repositories: yum repolist
-Clean Yum Cache: yum clean all / yum pdate
+Clean Yum Cache: yum clean all / yum update
 Check for Package Availability: yum search <pac_name>
 Check for Package Dependencies: yum deplist <pack_name>
 Examine Yum Logs: less /var/log/yum.log
-Check with central repo team
+Check with the central repo team
 
 7. swap space
 8. grep cmnd usage

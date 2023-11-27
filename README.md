@@ -107,6 +107,9 @@ chattr +i <file_name>
 15. how to check the top 10 space consuming files/dir in a particular dir
 # du -sh * | sort -rn | head
 
+16. How to check when was package installed on server
+- rpm -q -last <package_name>
+
 rpm -qf <file_name> # to get package name of filename
 
 awk -F : '{ if ($<position_in_line_to_check> ~ <content_to_search>) print $<position_in_line>}' <File_Name>

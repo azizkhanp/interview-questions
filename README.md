@@ -240,6 +240,15 @@ Lifecycle in terraform?
   }
 How to destroy particular resources in terraform? 
 - terraform destroy -target=resource_type.resource_name
+How to manage terraform data in multiple env?
+Workspace
+re-usable modules
+
+how may ways variables can provide to terraform?
+Variable Declarations: we can define directly in main.tf
+Variable files: variables.tfvars
+Environment Variables: export TF_VAR_region="us-west-2"
+Command-Line Flags: terraform apply -var="region=us-west-2"
 
 how to export data from one module to another module?
 Types of modules in terraform?

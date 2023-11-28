@@ -242,6 +242,7 @@ How to destroy particular resources in terraform?
 - terraform destroy -target=resource_type.resource_name
 
 how to export data from one module to another module?
+Types of modules in terraform?
 what is state file in terraform?
 what is state-lock mechanism in terraform?
 what do you understand about data_source? 

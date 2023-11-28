@@ -232,6 +232,15 @@ Git branch Strategies?
 Do you have experience in configuration management tools like Ansible?   
 Do you need to install anything during the provisioning process using Terraform?  
 How would you save any particular resource while destroying the complete infra.?
+Lifecycle in terraform?
+- lifecycle {
+    create_before_destroy = true
+    prevent_destroy       = true
+    ignore_changes        = ["tags"]
+  }
+How to destroy particular resources in terraform? 
+- terraform destroy -target=resource_type.resource_name
+
 how to export data from one module to another module?
 what is state file in terraform?
 what is state-lock mechanism in terraform?

@@ -120,6 +120,16 @@ ls,cp,mv,mkdir,touch,vim,grep,find,locate,top,sar,df
  19. write a script to print only errors from a remote log
       curl <remote_server_name/ip> | grep -i error  
 
+ 20. How to open a file in read-only mode?
+    - vim -r <FN>
+21. Diff b/w break and continue statements
+
+22. How will u sort the list of names in a file
+    sort <FN>
+
+23. How will u manage logs of a system that generates huge log files every day?
+--> logrotate
+
 
 awk -F : '{ if ($<position_in_line_to_check> ~ <content_to_search>) print $<position_in_line>}' <File_Name>
 sed 's/aziz/Khan/g' <filename>    # it will search file aziz word in file and replace it with Khan and display output on terminal

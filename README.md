@@ -109,8 +109,17 @@ chattr +i <file_name>
 
 16. How to check when was package installed on server
 - rpm -q -last <package_name>
+- rpm -qf <file_name> # to get package name of filename
 
-rpm -qf <file_name> # to get package name of filename
+17. List some of the commonly used shell commands?
+ls,cp,mv,mkdir,touch,vim,grep,find,locate,top,sar,df
+
+18. write a simple shell script to list all process
+ - ps -ef | awk -F " "'{print $2}'
+
+ 19. write a script to print only errors from a remote log
+      curl <remote_server_name/ip> | grep -i error  
+
 
 awk -F : '{ if ($<position_in_line_to_check> ~ <content_to_search>) print $<position_in_line>}' <File_Name>
 sed 's/aziz/Khan/g' <filename>    # it will search file aziz word in file and replace it with Khan and display output on terminal

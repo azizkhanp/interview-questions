@@ -12,7 +12,9 @@ how you check performance metrics in vROPS
 what you do in login site
 if PSU's are down what will impact on vCenters
 what are services running on vCenter server
+  service-control --status 
 how to restart services from vCenter cli
+   service-control --start --all
 how to patch vCenter appliance
 vCenter patch you faced
 how to upgrade vCenter 6.5 to 7.0 (pre-checks, process,post-checks)
@@ -22,7 +24,7 @@ what types of service profiles you using (how many types do we have)
 what are H/W vendors using
 how to replace H/W on the server (pre-checks and post-checks)
 Esxi patch (pre-checks, process,post-checks)
-E patch you faced
+Esxi patch you faced
 what are the remediation of Esxi(steps)
 Esxi went to a not-responding state (why? How did you resolve)
 how to create new Datastores
@@ -31,9 +33,27 @@ how to add RDS disk to VM
 have you faced Datastores issue(VM's RO state,VM's disconnected)
 how to deploy OVA/OVF vms from vCenter
 vMotion (pre-checks, process, post-checks)
-FT how it works
-DRS how it works
+  CPU compatibility
+  vMotion interface (minimum 1 Gb adapter)
+  Shared storage
+  Same naming for virtual port groups
+  VMkernel port group with vMotion enabled
+  Sufficient resources on the target host
+  At least one vSphere Essentials Plus license on the Corresponding ESX host
+
+FT how it works (Fault-Tolerance)
+https://www.techtarget.com/searchitchannel/feature/VSphere-Fault-Tolerance-requirements-and-FT-logging#:~:text=Fault%20Tolerance%20(FT),-Fault%20Tolerance%20(FT&text=FT%20takes%20that%20to%20the,created%20on%20another%20functional%20host.
+
+FT is applicable on VM level, 
+FT takes that to the next level and guarantees that the VM stays operational during a host failure by keeping a secondary copy of it running on another host server; in case of a host failure, that VM then becomes the primary VM and a new secondary is created on another functional host.
+The primary VM and secondary VM stay in sync with each other by using a technology called Record/Replay
+
+DRS how it works (Distributed Resource Scheduler)
+
+
 HA how it works (BG of HA),fdm agents
+https://cloudpathshalacom.wordpress.com/2018/09/01/how-vmware-ha-works-deep-dive/
+
 Affinity,anti-affinity rules
 new Esxi installtion process
 how to create vmware case

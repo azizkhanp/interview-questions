@@ -65,7 +65,8 @@ what is a standard, distributed switch in vmware
 what is VLAN, how it works
 have you deployed new vCenter/VRA
 what are the files of vm
-what are files of snapshot
+what are files of snapshot 
+  https://www.parallels.com/blogs/ras/vm-snapshot/
 why I try to extend disk not-able Y?
 how to remove and add vm from inventory
 what type of authentication you using to log into vCenter
@@ -81,6 +82,7 @@ OS patch of VM
 #ur in the same dir
 #some users are using files in dir
 #some files are open in dir (lsof +D /path/to/your/directory)
+
 4. what could be the reason if the server takes more time after reboot?
    Hardware issue / Service start delay / N/W issue / Filesystem checks / Resources issue
 5. we're trying to create the file under any partition but we're getting a permission denied alert.
@@ -92,49 +94,74 @@ what could be the reason? however, no space issue and no permission issue
 #ip route
 
 7. how to set sticky bit. what is the diff b/w small s and S?
-#chmod o+t file/dir
+Only applicable to Dir
+
+#chmod o+t dir
 s-setuid and executable
 S-setuid and non-executable
 
-8. which file is used to specify the default gateway?
+8. Setuid/Setgid Special Permissions
+  Applicable to files/Dir
+  chmod u+s file/dir 
+  chmode g+s file/dir
+
+
+9. which file is used to specify the default gateway?
 #/etc/sysconfig/network
 
-9. in RHEL-7, how to switch b/w two runlevels
+10. in RHEL-7, how to switch b/w two run levels
 #systemctl isolate runlevel3.target
 #systemctl set-default multi-user.target
 #systemctl get-default
 
-10. what is NFS? How to configure, ports
+11. Run Levels
+   init0 -- power off
+   init1 -- single-user mode
+   init2 -- Multiple user mode with no N/W.
+   init3 -- Multiple user modes under the command line interface and N/W.
+   init4 -- User-definable.
+   init5 -- Multiple user mode under GUI (graphical user interface) and this is the standard runlevel for most of the LINUX-based systems.
+   init6 -- Reboot/restart
+
+12. what is NFS? How to configure, ports
 2049
-11. nice value? How to set it?
+13. nice value? How to set it?
 #nice value is the priority of a process -20 to 19
 #nice -n 5 cmd
 
-13. how will u rollback the packages after patching
+14. how will u rollback the packages after patching
 #yum history
 #yum history info 8
 #yum history undo 8
 
-14. How to convert ext3 file system to ext4 without any data loss
+15. How to convert ext3 file system to ext4 without any data loss
 #umount /dev/sda5
 #tune2fs -O extents,uninit_bg,dir_index /dev/sda5
 #fsck -pf /dev/sda5
 #e2fsck -f /dev/sda5
 #mount -t ext4 /dev/sda5 /new
 
-15. what is a Linux kernel? Can we edit it?
-16. what are system utilities?
-17. what are system libraries?
-18. Diff b/w unix vs Linux?
-19. what is heap memory(heap space)?
-20. swap space?
-21. linux loader(LILO)?
-22. what are modes in linux? (mode 0....)
-23. Diff b/w cron vs ana-cron?
-24. user account locked?
-25. what are ACL in linux?
-26. How do you get the top 10 lines of your file?   
-27. How do you access the live logs of your file, such as TOCA log or Apache do log, to see exactly what is being recorded in the file?  
+16. what is a Linux kernel? Can we edit it?
+17. what are system utilities?
+18. what are system libraries?
+19. Diff b/w unix vs Linux?
+20. what is heap memory(heap space)?
+21. swap space?
+22. linux loader(LILO)?
+24. Diff b/w cron vs ana-cron?
+25. user account locked?
+    Account Expired:/Account Password Expired: chage -l username
+    Password locked : passwd -l username or /etc/shadow ! , passwd -S username , passwd -u username
+    User lock: usermod --lock username , usermod --unlock username
+    Failed Login Attempts: /etc/security/faillock.conf
+    Account is Expired Due to Inactivity: /etc/default/useradd
+    logs: grep username /var/log/auth.log
+
+26. what is ACL in Linux?
+27. How do you get the top 10 lines of your file?   
+     head -n 10 <FN>
+28. How do you access the live logs of your file, such as TOCA log or Apache do log, to see exactly what is being recorded in the file?  
+     tail -f <FN>
 
 1. Diff b/w bash and dash
 2.Diff b/w hardlink and softlink
@@ -176,17 +203,18 @@ usermod -s /sbin/nologin root
 13. How to change id of user? /etc/login.def
 
 14. root user not able to delete a file
+lsattr <FN>
 chattr -i <f_n>
 chattr +i <file_name>
 
-15. how to check the top 10 space consuming files/dir in a particular dir
+15. how to check the top 10 space-consuming files/dir in a particular dir
 # du -sh * | sort -rn | head
 
-16. How to check when was package installed on server
+16. How to check when the was package installed on the server
 - rpm -q -last <package_name>
 - rpm -qf <file_name> # to get package name of filename
 
-17. List some of the commonly used shell commands?
+17. List some of the commonly used shell commands.
 ls,cp,mv,mkdir,touch,vim,grep,find,locate,top,sar,df
 
 18. write a simple shell script to list all process
@@ -207,7 +235,7 @@ ls,cp,mv,mkdir,touch,vim,grep,find,locate,top,sar,df
 
 
 awk -F : '{ if ($<position_in_line_to_check> ~ <content_to_search>) print $<position_in_line>}' <File_Name>
-sed 's/aziz/Khan/g' <filename>    # it will search file aziz word in file and replace it with Khan and display output on terminal
+sed 's/aziz/Khan/g' <filename>    # it will search file aziz word in file and replace it with Khan and display output on the terminal
 
 sed -i 's/aziz/Khan/g' <filename> # it will save changes in file
 

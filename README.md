@@ -1,4 +1,59 @@
 # interview-questions
+
+# vMware:
+what is vSAN
+vSAN types and version
+VRA,VROPS versions your using
+what you do in VRA
+what you do in VROPS
+have you created a dashboard in vROPS
+what are nodes in vROPS
+how you check performance metrics in vROPS
+what you do in login site
+if PSU's are down what will impact on vCenters
+what are services running on vCenter server
+how to restart services from vCenter cli
+how to patch vCenter appliance
+vCenter patch you faced
+how to upgrade vCenter 6.5 to 7.0 (pre-checks, process,post-checks)
+vCenter upgrade issues you faced
+how to upgrade UCSFI
+what types of service profiles you using (how many types do we have)
+what are H/W vendors using
+how to replace H/W on the server (pre-checks and post-checks)
+Esxi patch (pre-checks, process,post-checks)
+E patch you faced
+what are the remediation of Esxi(steps)
+Esxi went to a not-responding state (why? How did you resolve)
+how to create new Datastores
+DS filesystem upgrade vmfs5 to vmfs6
+how to add RDS disk to VM
+have you faced Datastores issue(VM's RO state,VM's disconnected)
+how to deploy OVA/OVF vms from vCenter
+vMotion (pre-checks, process, post-checks)
+FT how it works
+DRS how it works
+HA how it works (BG of HA),fdm agents
+Affinity,anti-affinity rules
+new Esxi installtion process
+how to create vmware case
+how to inform notifications to customers on P1/P2 issues
+recently faced P1/P2 issue
+in the last 6 months what you learned new things
+what is vmkernel adpters
+what is a standard, distributed switch in vmware
+what is VLAN, how it works
+have you deployed new vCenter/VRA
+what are the files of vm
+what are files of snapshot
+why I try to extend disk not-able Y?
+how to remove and add vm from inventory
+what type of authentication you using to log into vCenter
+what are vmtools, uses
+what is hostd,vpxa,vpxd service, how they work
+knowledge on windows OS
+OS patch of VM 
+
 # linux:
 1. How to set a username and password to never expires  chage -M -1 username
 2. to list, all the files opened by a particular PID lsof -p PID

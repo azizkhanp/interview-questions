@@ -323,9 +323,13 @@ what is ECS? cluster? EC2 vs Fragent?
 
 # Devops
 What are Tech stack using in your DevOps project?
-Explain the complete CICD process that has been followed in the your project?
+Explain the complete CICD process that has been followed in your project.
 what is the flow of your CICD or Steps in Jenkins build?
 How can you instruct your pipeline to schedule a job on a specific node that has J D K 70, when it is only available on one node out of ten? 
+What are Executors in Jenkins
+what is a multi-branch pipeline
+how to pass parameters in Jenkins pipeline
+what is trigger in jenkins
 If your CICD was aborted by you due to it continuously running bez of a parameter issue? when u run again same CICD pipeline what will happen? State-lock file.
 Which tool do you use to build Java projects? 
 Where will you store your credentials? Username and password for Jenkins, Docker registry, etc.?   

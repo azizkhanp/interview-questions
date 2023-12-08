@@ -75,6 +75,8 @@ what is hostd,vpxa,vpxd service, how they work
 knowledge on windows OS
 OS patch of VM 
 
+#################################################################################################################################################################
+
 # linux:
 1. How to set a username and password to never expires  chage -M -1 username
 2. to list, all the files opened by a particular PID lsof -p PID
@@ -242,6 +244,8 @@ sed -i 's/aziz/Khan/g' <filename> # it will save changes in file
 #it will replace aziz with Khan in 2&3 lines
 sed '2,3 s/aziz/Khan' <filename>
 
+##########################################################################################################################################################
+
 # k8s
 1. k8s pod vs docker container
   container is a lightweight, standalone, and executable software package that includes everything needed to run a piece of software, including the code, runtime, libraries, and system tools.
@@ -297,7 +301,7 @@ OOMKilled: if the container or pod exceeds its memory limit, k8s terminate the c
 CrashLoopBackOff: config error, resource constraints, dependency issues, app error
 Running(but status id 0/1): issue with liveness or readiness probe
 
-
+##############################################################################################################################################################
 # AWS
 1.Route53 type
 public hosted zone -- traffic is routed on the internet
@@ -319,7 +323,7 @@ what is ECS? cluster? EC2 vs Fragent?
 
 
 
-# Some more topics – just for your reference only – Good to know below topics before interview
+#############################################################################################################################################################
 
 # Devops
 What are Tech stack using in your DevOps project?
@@ -335,6 +339,7 @@ Which tool do you use to build Java projects?
 Where will you store your credentials? Username and password for Jenkins, Docker registry, etc.?   
 How do you write custom actions and integrate them into your pipeline? 
 What is sonarqube? why your using it?
+What is code coverage in sonar qube?
 Git branch Strategies?  
 Do you have experience in configuration management tools like Ansible?   
 Do you need to install anything during the provisioning process using Terraform?  
@@ -357,6 +362,48 @@ Variable files: variables.tfvars
 Environment Variables: export TF_VAR_region="us-west-2"
 Command-Line Flags: terraform apply -var="region=us-west-2"
 
+What will happen when you run the terraform init command?
+what files will be created? 
+- Backend Configuration: If ur using a remote state then the backend will be initialized
+- Plugin Initialization: download plugins mentioned in config files like (AWS,GCP) in a Dir .terraform
+- Lock file creation: .terraform.lock.hcl
+
+Explain core terraform end-to-end workflow to deploy and delete
+resources in AWS
+
+Workflow:
+ write:
+ init:
+ validate:
+ plan:
+ apply:
+ destroy:
+
+we have existing terraform infra created in AWS, now one particular resource needs to be re-created, whenever we do the next apply.
+terraform taint or replace
+  terraform state list
+  terraform taint "resource-name"
+  terraform plan
+  terraform apply
+
+Explain the various type of META-arguments in terraform 
+ depends_on
+ count
+ for_each
+ provider
+ lifecycle
+
+who created the "terraform.tfstate.backup1" file and under which scenario it is created?
+- When you run terraform destroy then "backup" file will be created, it has all resource info of previously deployed infra using terraform config
+  we can move backup file to statefile and apply to deploy previously created resources. 
+
+what is import in terraform? 
+    terraform import resource-block.<resource_name> <resource_ID>
+  - This is useful when you have resources that were created outside of Terraform, and you want to start managing them using Terraform without recreating them. 
+if someone changed resources manually, which was deployed through terraform. what will happen?how to update terraform? 
+- update the terraform config file as per manual changes
+- terraform refresh
+
 how to export data from one module to another module?
 Types of modules in terraform?
 what is state file in terraform?
@@ -367,7 +414,7 @@ parent module and child module?
 what is external-data-block in terraform?
 null resources in terraform?
 if state file is deleted how to recover it?
-what is import in terraform?
+
 what is dynamic value value at run time in terraform?
 Are you deploying in Kubernetes or in EC2?     
 How do you execute the command to install the next?   

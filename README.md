@@ -342,9 +342,14 @@ What is sonarqube? why your using it?
 What is code coverage in sonar qube?
 Git branch Strategies?  
 Do you have experience in configuration management tools like Ansible?   
-Do you need to install anything during the provisioning process using Terraform?  
-How would you save any particular resource while destroying the complete infra.?
-Lifecycle in terraform?
+
+How to install anything during the provisioning process using Terraform? or what are the provisioners in terraform?
+  provisioners are used to execute scripts or commands on the local machine or the remote machine during the provisioning process.
+  Local Exec Provisioner (local-exec):
+  Remote Exec Provisioner (remote-exec):
+  File Provisioner (file):
+
+How would you save any particular resource while destroying the complete infra.? Lifecycle in terraform?
 - lifecycle {
     create_before_destroy = true
     prevent_destroy       = true
@@ -362,60 +367,73 @@ Variable files: variables.tfvars
 Environment Variables: export TF_VAR_region="us-west-2"
 Command-Line Flags: terraform apply -var="region=us-west-2"
 
-What will happen when you run the terraform init command?
-what files will be created? 
+What will happen when you run the terraform init command? what files will be created? 
 - Backend Configuration: If ur using a remote state then the backend will be initialized
 - Plugin Initialization: download plugins mentioned in config files like (AWS,GCP) in a Dir .terraform
 - Lock file creation: .terraform.lock.hcl
 
-Explain core terraform end-to-end workflow to deploy and delete
-resources in AWS
-
+Explain core terraform end-to-end workflow to deploy and delete resources in AWS
 Workflow:
- write:
- init:
- validate:
- plan:
- apply:
- destroy:
+- write: like main.tf / provider.tf
+- init: terraform init
+- validate: terraform validate
+- plan: terraform plan
+- apply: terraform apply -auto-approve
+- destroy: terraform destroy -auto-approve
 
 we have existing terraform infra created in AWS, now one particular resource needs to be re-created, whenever we do the next apply.
-terraform taint or replace
+terraform taint 
   terraform state list
   terraform taint "resource-name"
   terraform plan
   terraform apply
 
-Explain the various type of META-arguments in terraform 
- depends_on
- count
- for_each
- provider
+Explain the various types of META arguments in terraform 
+ depends_on: One resource is created before another resource
+ count: to deploy multiple resources like EC2 
+ for_each : loop (Key = value)
+ provider : 
  lifecycle
 
 who created the "terraform.tfstate.backup1" file and under which scenario it is created?
 - When you run terraform destroy then "backup" file will be created, it has all resource info of previously deployed infra using terraform config
-  we can move backup file to statefile and apply to deploy previously created resources. 
+  we can move backup file to statefile and apply it to deploy previously created resources. 
 
 what is import in terraform? 
     terraform import resource-block.<resource_name> <resource_ID>
   - This is useful when you have resources that were created outside of Terraform, and you want to start managing them using Terraform without recreating them. 
-if someone changed resources manually, which was deployed through terraform. what will happen?how to update terraform? 
+
+if someone changed resources manually, which was deployed through terraform. what will happen? how to update terraform? 
 - update the terraform config file as per manual changes
 - terraform refresh
 
-how to export data from one module to another module?
-Types of modules in terraform?
-what is state file in terraform?
-what is state-lock mechanism in terraform?
-what do you understand about data_source? 
-Modules ? meta argument in a module?
-parent module and child module?
-what is external-data-block in terraform?
-null resources in terraform?
-if state file is deleted how to recover it?
+what are Modules? Types of modules in terraform?
+ Terraform modules are reusable and encapsulated collections of Terraform configurations. They simplify managing resources, making your Terraform code more manageable and scalable.
+  1. Root Module: Main module
+  2. Child Module: Called by another module like root 
+  3. Published Modules: Terraform registry
 
-what is dynamic value value at run time in terraform?
+how to export data from one module to another module?
+  - you can export data from one module to another module using module outputs.
+  
+what is a state file in Terraform?
+ - To store information about the resources it has created and their current configuration. (terraform.tfstate)
+
+what is a state-lock mechanism in terraform?
+ - It ensures that only one operation can modify the infrastructure at any given time
+ - The state-lock mechanism involves acquiring and releasing locks to coordinate access to the Terraform state.
+
+what do you understand about data_source? 
+what is external-data-block in terraform?
+null resources in terraform? trigger
+ - Terraform null_resource does not have a state which means it will be executed as soon as you run "terraform apply" command but no state will be saved.
+ - The trigger is a block inside the null_resource which holds key-value pair.
+ 
+if a state file is deleted how to recover it?
+what is a dynamic value at run time in terraform?
+How to pass parameters in terraform? 
+ - use variables
+
 Are you deploying in Kubernetes or in EC2?     
 How do you execute the command to install the next?   
 Can you give me an example? Why do we need user data?   
@@ -425,7 +443,7 @@ What is the difference between local variables and normal variables in terraform
 Create a security group with the security group resource. For example, when you create a security group, how do you refer to the security group ID in the resource called Easy Two ?
 How do you call the output of code written in another module into a different module?   
 How do you read the map if you use count?   
-Have you used any provisioners in Terraform?   
+  
 After creating an instance, execute commands on it.
 Can you explain how you deploy your workloads using EKS and GKE?   
 Have you used autoscaling groups in AWS?   

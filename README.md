@@ -292,9 +292,17 @@ sed '2,3 s/aziz/Khan' <filename>
    In Kubernetes, you can use the Horizontal Pod Autoscaler (HPA) to automatically adjust the number of pods in a deployment or replica set based on observed metrics. Common metrics include CPU utilization and custom metrics.
 
 9. How do you restart your deployment?
-10. Kubectl describe vs kubectl logs ?
-11. Where do you store secrets in Kubernetes?
-12. Error codes or diff status codes in k8s and also how do u debug or find what's the issue?
+   kubectl rollout restart deployment <deployment-name>
+
+10. Liveness and readiness i k8s?
+     The liveness probe is used to determine if a container is alive or not. If a container fails its liveness probe, Kubernetes will restart the container.
+      Like: checking whether a specific endpoint in the application is responsive or if the application process is running.
+     The readiness probe is used to determine if a container is ready to serve traffic. 
+      This is particularly useful during deployments or when an application needs time to initialize before accepting traffic.
+
+11. Kubectl describe vs kubectl logs ?
+12. Where do you store secrets in Kubernetes?
+13. Error codes or diff status codes in k8s and also how do u debug or find what's the issue?
 CreateContainerConfigError: 
 Pending: insufficient resources(namespace limits, pod limits), if affinity rule not match, pv storage
 OOMKilled: if the container or pod exceeds its memory limit, k8s terminate the container

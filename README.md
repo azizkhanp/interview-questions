@@ -434,6 +434,17 @@ what is a dynamic value at run time in terraform?
 How to pass parameters in terraform? 
  - use variables
 
+How to share data b/w 2 modules or 2 remote state files. (terraform_remote_state)
+ vpc.tf
+
+![image](https://github.com/azizkhanp/interview-questions/assets/26810752/e6822a48-39b9-45c1-9342-34c4f410a0a9)
+
+Ec2.tf
+![image](https://github.com/azizkhanp/interview-questions/assets/26810752/47ec2636-b556-4dd1-9bc1-e364bb49dcf7)
+
+
+
+
 Are you deploying in Kubernetes or in EC2?     
 How do you execute the command to install the next?   
 Can you give me an example? Why do we need user data?   

@@ -311,6 +311,13 @@ Running(but status id 0/1): issue with liveness or readiness probe
 
 ##############################################################################################################################################################
 # AWS
+
+Can I mount single EBS volumes to multiple EC2? NO
+Can I mount multiple EBS volumes to a single EC2? Yes
+How many EBS volumes can we attach to a single EC2? 24
+What happens to my data when EC2 is terminated?
+If U check "Delete on termination" then data will be deleted
+
 1.Route53 type
 public hosted zone -- traffic is routed on the internet
 private hosted zone -- traffic is routed within an aws vpc

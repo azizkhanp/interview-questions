@@ -245,6 +245,35 @@ sed -i 's/aziz/Khan/g' <filename> # it will save changes in file
 sed '2,3 s/aziz/Khan' <filename>
 
 ##########################################################################################################################################################
+Docker Architecture
+  1. Client: Build, Pull, Run
+  2. Docker Host: 
+           a.Docker daemon: It manages docker objects such as images, containers, networks, and volumes with the help of the API requests of Docker.
+           b.container: Containers are created from docker images as they are ready applications.
+           c.Images: An image contains instructions for creating a docker container. It is just a read-only template.
+  3. Registry: All the docker images are stored in the docker registry (Public or private)
+
+How to edit the docker image? (example: my-img)
+ - first, we need to run a container (# docker run -dt my-img)
+ -  login to the container (docker exec -it <container_ID> bash)
+ -  make changes to what you need for new image like create some Dir or install some packages
+ -  Then commit changes (docker commit <conatiner_ID> new-image-name)
+
+DockerFile
+  - FROM: base image
+  - WORKDIR: To set the working dir
+  - EXPOSE: to expose any ports
+  - ENTRYPOINT: When you start the Docker container, a command or script called ENTRYPOINT is executed.
+  - ENV: to set environment variables 
+  - COPY: copying the files/dir to the image 
+  - ADD: Downloading any data from URLs 
+  - CMD: The main purpose of the CMD command is to start the process inside the container and it can be overridden
+             Dockerfile can only have one CMD, 
+  - RUN: To run any command
+which instruction the docker image will take if we use both ENTRYPOINT and CMD in DockerFile
+   - It takes only the last instruction(ENTRYPOINT or CMD) which mentioned in DockerFile
+How to mount Dir to container
+   
 
 # k8s
 1. k8s pod vs docker container

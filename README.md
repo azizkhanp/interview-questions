@@ -387,6 +387,7 @@ What is code coverage in sonar qube?
 Git branch Strategies?  
 Do you have experience in configuration management tools like Ansible?   
 
+How to find drift in 
 How to install anything during the provisioning process using Terraform? or what are the provisioners in terraform?
   provisioners are used to execute scripts or commands on the local machine or the remote machine during the provisioning process.
   Local Exec Provisioner (local-exec):

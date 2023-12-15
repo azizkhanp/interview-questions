@@ -387,7 +387,24 @@ What is code coverage in sonar qube?
 Git branch Strategies?  
 Do you have experience in configuration management tools like Ansible?   
 
-How to find drift in 
+How to find drift detection 
+  1. terraform refresh  or  cronjob - terraform refresh
+  2. Create a strict Rule if any IAM user wants to change any resources in AWS manually he/she needs to take approval from manager
+  3. Audit log - Create a Lambda function to send alerts for team if there is any change happen for resources managed by terraform 
+       (Like who changed resources IAM user name and timestamp ..)
+
+How to migrate manual deployed resources to terraform
+  - Write a main.tf 
+      provider "AWS" {
+    region = "us-east-2"  
+}
+    import {
+       to = "aws_instance.vm-name"
+       id = "Ec2-ID"
+      }
+ -  terraform plan -generate-config-out=vm-name.tf (This will generate terraform code in vm-name.tf copy and pate all code to main.tf and remove import block)
+ - terraform import aws_instance.vm-name <EC2-ID> (it will generate the state file)
+
 How to install anything during the provisioning process using Terraform? or what are the provisioners in terraform?
   provisioners are used to execute scripts or commands on the local machine or the remote machine during the provisioning process.
   Local Exec Provisioner (local-exec):

@@ -80,22 +80,24 @@ OS patch of VM
 # linux:
 1. How to set a username and password to never expires  chage -M -1 username
 2. to list, all the files opened by a particular PID lsof -p PID
-3. we are unable to unmount the file system. What are the reasons behind it
+3.  How to check users list in a particular group 
+     cat /etc/group | grep <Group-name>
+4. we are unable to unmount the file system. What are the reasons behind it
 #ur in the same dir
 #some users are using files in dir
 #some files are open in dir (lsof +D /path/to/your/directory)
 
-4. what could be the reason if the server takes more time after reboot?
+5. what could be the reason if the server takes more time after reboot?
    Hardware issue / Service start delay / N/W issue / Filesystem checks / Resources issue
-5. we're trying to create the file under any partition but we're getting a permission denied alert.
+6. we're trying to create the file under any partition but we're getting a permission denied alert.
 what could be the reason? however, no space issue and no permission issue
 #may be inode
-6. how to check kernel routing table information
+7. how to check kernel routing table information
 #route -n
 #netstat -rn
 #ip route
 
-7. how to set sticky bit. what is the diff b/w small s and S?
+8. how to set sticky bit. what is the diff b/w small s and S?
 Only applicable to Dir
 
 #chmod o+t dir
@@ -346,6 +348,24 @@ Can I mount multiple EBS volumes to a single EC2? Yes
 How many EBS volumes can we attach to a single EC2? 24
 What happens to my data when EC2 is terminated?
 If U check "Delete on termination" then data will be deleted
+Why I'm not able to login EC2?
+Why my Ec2 not pinging?
+VPC components: 
+  vpc : 
+  subnets:
+     IP address range in VPC
+     you can create multiple subnets within a VPC, they are associated with different availability zones.
+  route table:
+     It controls traffic b/w subnets within VPC and the internet.
+     Each subnet must be associated with an RT that specifies the routing rules.
+  Internet Gateway:
+      Virtual router that connects a VPC to the internet
+  NAT gateway: (N/W Add Translation)
+     It provides internet access for private instances without exposing their IP add to the public
+ Security Groups:
+  SG acts as a virtual firewall for your instances. They control inbound and outbound traffic based on user-defined rules.
+ Network ACL:
+    They are subnet-level firewalls that control inbound and outbound traffic at the subnet level.    
 
 1.Route53 type
 public hosted zone -- traffic is routed on the internet

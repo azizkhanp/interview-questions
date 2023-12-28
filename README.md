@@ -79,25 +79,27 @@ OS patch of VM
 
 # linux:
 1. How to set a username and password to never expires  chage -M -1 username
-2. to list, all the files opened by a particular PID lsof -p PID
-3.  How to check users list in a particular group 
+2. umask and ulimit 
+    https://foxyknight29.medium.com/umask-and-ulimit-in-linux-45f2c5ae1279
+3. to list, all the files opened by a particular PID lsof -p PID
+4.  How to check users list in a particular group 
      cat /etc/group | grep <Group-name>
-4. we are unable to unmount the file system. What are the reasons behind it
+5. we are unable to unmount the file system. What are the reasons behind it
 #ur in the same dir
 #some users are using files in dir
 #some files are open in dir (lsof +D /path/to/your/directory)
 
-5. what could be the reason if the server takes more time after reboot?
+6. what could be the reason if the server takes more time after reboot?
    Hardware issue / Service start delay / N/W issue / Filesystem checks / Resources issue
-6. we're trying to create the file under any partition but we're getting a permission denied alert.
+7. we're trying to create the file under any partition but we're getting a permission denied alert.
 what could be the reason? however, no space issue and no permission issue
 #may be inode
-7. how to check kernel routing table information
+8. how to check kernel routing table information
 #route -n
 #netstat -rn
 #ip route
 
-8. how to set sticky bit. what is the diff b/w small s and S?
+9. how to set sticky bit. what is the diff b/w small s and S?
 Only applicable to Dir
 
 #chmod o+t dir
@@ -274,7 +276,7 @@ DockerFile
   - RUN: To run any command
 which instruction the docker image will take if we use both ENTRYPOINT and CMD in DockerFile
    - It takes only the last instruction(ENTRYPOINT or CMD) which mentioned in DockerFile
-How to mount Dir to container
+How to mount Dir to the container
    
 
 # k8s
@@ -296,7 +298,7 @@ How to mount Dir to container
 3. what is a stateful set? when we choose it? 
    StatefulSets are designed to provide guarantees about the ordering and uniqueness of pods, making them suitable for applications that require stable network identifiers, persistent storage, and ordered deployment and scaling.
   Use StatefulSets when deploying stateful applications that require unique identifiers, stable network identities, and persistent storage. Examples include databases (like MySQL, PostgreSQL), messaging queues, and other applications that manage state.
-  When the order in which pods are deployed and started matters, StatefulSets are a good choice. This is crucial for applications where one instance depends on the availability of another.
+  When the order in which pods are deployed and started matters, StatefulSets is a good choice. This is crucial for applications where one instance depends on the availability of another.
 
 4. Diff b/w config maps and secrets? 
    ConfigMaps: Store data in key-value pairs. The values can be strings or files. 
@@ -325,7 +327,7 @@ How to mount Dir to container
 9. How do you restart your deployment?
    kubectl rollout restart deployment <deployment-name>
 
-10. Liveness and readiness i k8s?
+10. Liveness and readiness in k8s?
      The liveness probe is used to determine if a container is alive or not. If a container fails its liveness probe, Kubernetes will restart the container.
       Like: checking whether a specific endpoint in the application is responsive or if the application process is running.
      The readiness probe is used to determine if a container is ready to serve traffic. 
@@ -343,6 +345,11 @@ Running(but status id 0/1): issue with liveness or readiness probe
 ##############################################################################################################################################################
 # AWS
 
+How many AWS accounts do you have in the project? 
+  3 Accounts || Prod(Infra and Devops teams) >> Stage (Testing and QA team) >> Dev (Developers)
+What if ELB goes down and solution?
+ max ELB doesn't go down bcz it AWS managed service
+ pre-warming with AWS support if your traffic is high to hit LB (They will provide good hardware) 
 Can I mount single EBS volumes to multiple EC2? NO
 Can I mount multiple EBS volumes to a single EC2? Yes
 How many EBS volumes can we attach to a single EC2? 24
@@ -390,14 +397,15 @@ what is ECS? cluster? EC2 vs Fragent?
 #############################################################################################################################################################
 
 # Devops
-What are Tech stack using in your DevOps project?
+What is Tech stack using in your DevOps project?
 Explain the complete CICD process that has been followed in your project.
 what is the flow of your CICD or Steps in Jenkins build?
-How can you instruct your pipeline to schedule a job on a specific node that has J D K 70, when it is only available on one node out of ten? 
-What are Executors in Jenkins
+How can you instruct your pipeline to schedule a job on a specific node that has JDK 7.0, when it is only available on one node out of ten? 
+What are Executors in Jenkins?
+  An Executor is just a slot in which to run a job on an agent/node. An agent can have zero or more executors. The number of executors per Agent defines how many concurrent jobs can be run to that agent.
 what is a multi-branch pipeline
 how to pass parameters in Jenkins pipeline
-what is trigger in jenkins
+what is trigger in Jenkins
 If your CICD was aborted by you due to it continuously running bez of a parameter issue? when u run again same CICD pipeline what will happen? State-lock file.
 Which tool do you use to build Java projects? 
 Where will you store your credentials? Username and password for Jenkins, Docker registry, etc.?   
@@ -409,8 +417,8 @@ Do you have experience in configuration management tools like Ansible?
 
 How to find drift detection 
   1. terraform refresh  or  cronjob - terraform refresh
-  2. Create a strict Rule if any IAM user wants to change any resources in AWS manually he/she needs to take approval from manager
-  3. Audit log - Create a Lambda function to send alerts for team if there is any change happen for resources managed by terraform 
+  2. Create a strict Rule if any IAM user wants to change any resources in AWS manually he/she needs to get approval from a manager
+  3. Audit log - Create a Lambda function to send alerts to the team if there is any change for resources managed by Terraform 
        (Like who changed resources IAM user name and timestamp ..)
 
 How to migrate manual deployed resources to terraform
@@ -425,7 +433,7 @@ How to migrate manual deployed resources to terraform
  -  terraform plan -generate-config-out=vm-name.tf (This will generate terraform code in vm-name.tf copy and pate all code to main.tf and remove import block)
  - terraform import aws_instance.vm-name <EC2-ID> (it will generate the state file)
 
-How to install anything during the provisioning process using Terraform? or what are the provisioners in terraform?
+How to install anything during the provisioning process using Terraform? or what are the provisioners in Terraform?
   provisioners are used to execute scripts or commands on the local machine or the remote machine during the provisioning process.
   Local Exec Provisioner (local-exec):
   Remote Exec Provisioner (remote-exec):
@@ -472,11 +480,11 @@ terraform taint
 
 Explain the various types of META arguments in terraform 
  depends_on: One resource is created before another resource
- count: to deploy multiple resources like EC2 
- for_each : loop (Key = value)
- provider : 
- lifecycle
-
+ count: to deploy multiple resources like EC2 (count is used when you want to create multiple instances of a resource with the same configuration.)
+         Creating a fixed number of identical instances, such as multiple EC2 instances in the same subnet.
+ for_each: loop (Key = value) (for_each is used when you want to create multiple instances of a resource with distinct configurations.)
+           Creating a variable number of instances with different configurations, such as multiple EC2 instances with different AMIs.
+ 
 who created the "terraform.tfstate.backup1" file and under which scenario it is created?
 - When you run terraform destroy then "backup" file will be created, it has all resource info of previously deployed infra using terraform config
   we can move backup file to statefile and apply it to deploy previously created resources. 

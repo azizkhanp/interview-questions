@@ -506,6 +506,8 @@ what are Modules? Types of modules in terraform?
 how to export data from one module to another module?
   - you can export data from one module to another module using module outputs.
   
+what is # terraform init -reconfigure
+  If you want to change the backend of your statefile 
 what is a state file in Terraform?
  - To store information about the resources it has created and their current configuration. (terraform.tfstate)
 

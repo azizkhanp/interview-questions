@@ -436,8 +436,20 @@ How to migrate manual deployed resources to terraform
 How to install anything during the provisioning process using Terraform? or what are the provisioners in Terraform?
   provisioners are used to execute scripts or commands on the local machine or the remote machine during the provisioning process.
   Local Exec Provisioner (local-exec):
+    provisioner "local-exec" {
+    command = "echo 'Hello, World!'"
+  }
   Remote Exec Provisioner (remote-exec):
+     provisioner "remote-exec" {
+      inline = [
+        "sudo apt-get update",
+      "sudo apt-get install -y nginx",
+    ]
   File Provisioner (file):
+    provisioner "file" {
+    source      = "local/path/to/file.txt"
+    destination = "/remote/path/on/instance/file.txt"
+  }
 
 How would you save any particular resource while destroying the complete infra.? Lifecycle in terraform?
 - lifecycle {

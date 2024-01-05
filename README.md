@@ -78,11 +78,11 @@ OS patch of VM
 #################################################################################################################################################################
 
 # linux:
-1. How to set a username and password to never expires  chage -M -1 username
+1. How to set a username and password to never expire  #chage -M -1 username
 2. umask and ulimit 
     https://foxyknight29.medium.com/umask-and-ulimit-in-linux-45f2c5ae1279
-3. to list, all the files opened by a particular PID lsof -p PID
-4.  How to check users list in a particular group 
+3. to list, all the files opened by a particular PID #lsof -p PID
+4.  How to check the user list in a particular group 
      cat /etc/group | grep <Group-name>
 5. we are unable to unmount the file system. What are the reasons behind it
 #ur in the same dir
@@ -482,9 +482,22 @@ Explain the various types of META arguments in terraform
  depends_on: One resource is created before another resource
  count: to deploy multiple resources like EC2 (count is used when you want to create multiple instances of a resource with the same configuration.)
          Creating a fixed number of identical instances, such as multiple EC2 instances in the same subnet.
+     count = 3
+tags= {
+Name = "my-vm-${count.index + 1}"
+}
  for_each: loop (Key = value) (for_each is used when you want to create multiple instances of a resource with distinct configurations.)
            Creating a variable number of instances with different configurations, such as multiple EC2 instances with different AMIs.
- 
+            
+for_each = {
+instance1 = { ami = "ami-name"}
+instance2 = { ami = "ami-name"}
+}
+ami = each.value.ami
+tags ={
+Name = each.key
+} 
+
 who created the "terraform.tfstate.backup1" file and under which scenario it is created?
 - When you run terraform destroy then "backup" file will be created, it has all resource info of previously deployed infra using terraform config
   we can move backup file to statefile and apply it to deploy previously created resources. 

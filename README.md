@@ -421,6 +421,11 @@ How to find drift detection
   3. Audit log - Create a Lambda function to send alerts to the team if there is any change for resources managed by Terraform 
        (Like who changed resources IAM user name and timestamp ..)
 
+I have created resources using Terraform and deleted some resources manually how to update statefile as per deleted resources
+   -- terraform state list
+   after the resource is deleted manually from the console, then
+   -- terraform refresh
+
 How to migrate manual deployed resources to terraform
   - Write a main.tf 
       provider "AWS" {

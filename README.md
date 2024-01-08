@@ -426,6 +426,9 @@ I have created resources using Terraform and deleted some resources manually how
    after the resource is deleted manually from the console, then
    -- terraform refresh
 
+To force unlock lock-id
+#terraform force-unlock <Dynamo-DB-LOCK_ID>
+
 How to migrate manual deployed resources to terraform
   - Write a main.tf 
       provider "AWS" {

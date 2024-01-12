@@ -82,24 +82,27 @@ OS patch of VM
 2. umask and ulimit 
     https://foxyknight29.medium.com/umask-and-ulimit-in-linux-45f2c5ae1279
 3. to list, all the files opened by a particular PID #lsof -p PID
-4.  How to check the user list in a particular group 
+4. How to redirect error of command into file?
+       to redirect error we need to use 2>
+       to redirect error and output use 2>&1
+6.  How to check the user list in a particular group 
      cat /etc/group | grep <Group-name>
-5. we are unable to unmount the file system. What are the reasons behind it
+7. we are unable to unmount the file system. What are the reasons behind it
 #ur in the same dir
 #some users are using files in dir
 #some files are open in dir (lsof +D /path/to/your/directory)
 
-6. what could be the reason if the server takes more time after reboot?
+8. what could be the reason if the server takes more time after reboot?
    Hardware issue / Service start delay / N/W issue / Filesystem checks / Resources issue
-7. we're trying to create the file under any partition but we're getting a permission denied alert.
+9. we're trying to create the file under any partition but we're getting a permission denied alert.
 what could be the reason? however, no space issue and no permission issue
 #may be inode
-8. how to check kernel routing table information
+10. how to check kernel routing table information
 #route -n
 #netstat -rn
 #ip route
 
-9. how to set sticky bit. what is the diff b/w small s and S?
+11. how to set sticky bit. what is the diff b/w small s and S?
 Only applicable to Dir
 
 #chmod o+t dir

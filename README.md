@@ -79,30 +79,41 @@ OS patch of VM
 
 # linux:
 1. How to set a username and password to never expire  #chage -M -1 username
-2. umask and ulimit 
+2. Diff su and su -
+    su <user-name>: it will switch to the user but It doesn't change the user's home directory or bring in the user's environment settings.
+    su - <user-name>: it set home dir and env setting for user
+    visudo or /ect/sudoers (user    MACHINE=COMMANDS)
+3. How to run CMD or Script in the background?
+    nohup cmd/script &  (no hang up)
+    nohup COMMAND [ARGUMENTS] > output.log 2>&1 &
+
+4. umask and ulimit 
     https://foxyknight29.medium.com/umask-and-ulimit-in-linux-45f2c5ae1279
-3. to list, all the files opened by a particular PID #lsof -p PID
-4. How to redirect error of command into file?
+5. to list, all the files opened by a particular PID #lsof -p PID
+6. ls -l | grep -v^a  (it will show all files except letters starting with a)
+7. how to find all empty files or dir and delete them?
+    #find . -empty -exec rm -r {} \;
+8. How to redirect error of command into file?
        to redirect error we need to use 2>
        to redirect error and output use 2>&1
-6.  How to check the user list in a particular group 
+9.  How to check the user list in a particular group 
      cat /etc/group | grep <Group-name>
-7. we are unable to unmount the file system. What are the reasons behind it
+10. we are unable to unmount the file system. What are the reasons behind it
 #ur in the same dir
 #some users are using files in dir
 #some files are open in dir (lsof +D /path/to/your/directory)
 
-8. what could be the reason if the server takes more time after reboot?
+11. what could be the reason if the server takes more time after reboot?
    Hardware issue / Service start delay / N/W issue / Filesystem checks / Resources issue
-9. we're trying to create the file under any partition but we're getting a permission denied alert.
+12. we're trying to create the file under any partition but we're getting a permission denied alert.
 what could be the reason? however, no space issue and no permission issue
 #may be inode
-10. how to check kernel routing table information
+13. how to check kernel routing table information
 #route -n
 #netstat -rn
 #ip route
 
-11. how to set sticky bit. what is the diff b/w small s and S?
+14. how to set sticky bit. what is the diff b/w small s and S?
 Only applicable to Dir
 
 #chmod o+t dir
@@ -135,28 +146,37 @@ S-setuid and non-executable
 12. what is NFS? How to configure, ports
 2049
 13. nice value? How to set it?
-#nice value is the priority of a process -20 to 19
+#nice value is the priority of a process -20 to 19 , lower the number high priority 
 #nice -n 5 cmd
 
-14. how will u rollback the packages after patching
+14. how to change the nice value of of process with ID 2264,
+    #renice -20 -p 2264
+
+15. how will u rollback the packages after patching
 #yum history
 #yum history info 8
 #yum history undo 8
 
-15. How to convert ext3 file system to ext4 without any data loss
+16. Diff b/w yum update vs yum upgrade?
+    The yum update command is used to update all packages on the system to their latest versions, including kernel packages.
+    If a new kernel version is available, yum update will install it, but it won't remove the old kernel.
+
+   It performs the same tasks as yum update but may also remove packages that are no longer needed due to changes in dependencies or obsolescence.
+
+16. How to convert ext3 file system to ext4 without any data loss
 #umount /dev/sda5
 #tune2fs -O extents,uninit_bg,dir_index /dev/sda5
 #fsck -pf /dev/sda5
 #e2fsck -f /dev/sda5
 #mount -t ext4 /dev/sda5 /new
 
-16. what is a Linux kernel? Can we edit it?
-17. what are system utilities?
-18. what are system libraries?
-19. Diff b/w unix vs Linux?
-20. what is heap memory(heap space)?
-21. swap space?
-22. linux loader(LILO)?
+17. what is a Linux kernel? Can we edit it?
+18. what are system utilities?
+19. what are system libraries?
+20. Diff b/w unix vs Linux?
+21. what is heap memory(heap space)?
+22. swap space?
+23. linux loader(LILO)?
 24. Diff b/w cron vs ana-cron?
 25. user account locked?
     Account Expired:/Account Password Expired: chage -l username
@@ -192,11 +212,13 @@ Examine Yum Logs: less /var/log/yum.log
 Check with the central repo team
 
 7. swap space
-8. grep cmnd usage
-9. password policy agent in linux
+8. paging in linux
+9. DNS:53, SSH:22, FTP:21, DHCP:67,68, Squid:3128, HTTP:80, HTTPS:443, SMTP:25
+10. grep & egrep cmnd usage 
+11. password policy agent in linux
 PAM --> Check password quality, reusing the same passwords, password aging, /etc/pam.d/ directory.
 
-10. user not able to log in remote server(SSH)?
+12. user not able to log in remote server(SSH)?
 -ssh is running
 -Check port of SSH
 -User has permission to login to server
@@ -210,18 +232,22 @@ PAM --> Check password quality, reusing the same passwords, password aging, /etc
 usermod -s /sbin/nologin root
 
 13. How to change id of user? /etc/login.def
+14. How to set env. variables in linux?
+    user level: .bashrc
+    global level: cat /etc/bashrc or cat /etc/profile
 
-14. root user not able to delete a file
+15. root user not able to delete a file
 lsattr <FN>
 chattr -i <f_n>
 chattr +i <file_name>
 
-15. how to check the top 10 space-consuming files/dir in a particular dir
+16. how to check the top 10 space-consuming files/dir in a particular dir
 # du -sh * | sort -rn | head
 
 16. How to check when the was package installed on the server
 - rpm -q -last <package_name>
 - rpm -qf <file_name> # to get package name of filename
+- rpm -qa | grep <package_name>  --> to check if package is installed or not 
 
 17. List some of the commonly used shell commands.
 ls,cp,mv,mkdir,touch,vim,grep,find,locate,top,sar,df

@@ -277,6 +277,19 @@ sed -i 's/aziz/Khan/g' <filename> # it will save changes in file
 #it will replace aziz with Khan in 2&3 lines
 sed '2,3 s/aziz/Khan' <filename>
 
+what would be the result of each command:
+echo $0: Display the current shell-like (bash / sh / csh)
+echo $?: Displays the exit status of the last executed command. (0-succeeded / error - non-zero)
+echo $$: Displays the process ID (PID) of the current shell.
+echo $#: Displays the number of positional parameters (arguments) passed to a script or function.
+
+$@: Treats each positional parameter as a separate word when enclosed in double quotes. Preferred when dealing with arguments that contain spaces or special characters.
+$*: Treats all positional parameters as a single word when enclosed in double quotes. The arguments are concatenated with the first character of IFS as the separator.
+
+How do you get input from the user in shell scripts?
+read <input>
+
+Grafana: https://computingforgeeks.com/how-to-install-grafana-on-centos-7/
 ##########################################################################################################################################################
 Docker Architecture
   1. Client: Build, Pull, Run

@@ -290,6 +290,7 @@ How do you get input from the user in shell scripts?
 read <input>
 
 Grafana: https://computingforgeeks.com/how-to-install-grafana-on-centos-7/
+prometheus: https://blog.fourninecloud.com/what-is-prometheus-and-how-to-install-and-configure-it-on-linux-server-9b5f88685451
 ##########################################################################################################################################################
 Docker Architecture
   1. Client: Build, Pull, Run

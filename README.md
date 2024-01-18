@@ -323,6 +323,8 @@ How to mount Dir to the container
    
 
 # k8s
+https://medium.com/@mesutoezdil/preparation-for-the-k8s-interviews-4f9111cd01e7
+
 1. k8s pod vs docker container
   container is a lightweight, standalone, and executable software package that includes everything needed to run a piece of software, including the code, runtime, libraries, and system tools.
   Designed for packaging and running a single application or service.

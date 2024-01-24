@@ -379,8 +379,19 @@ https://medium.com/@mesutoezdil/preparation-for-the-k8s-interviews-4f9111cd01e7
       This is particularly useful during deployments or when an application needs time to initialize before accepting traffic.
 
 11. Kubectl describe vs kubectl logs ?
-12. Where do you store secrets in Kubernetes?
-13. Error codes or diff status codes in k8s and also how do u debug or find what's the issue?
+12. Pod issues:
+   Resource Crunch
+   Node Unavailability
+   Persistent volume Unavailability
+   Exceeding Resource Quota
+   Exceeding Limit Range
+13. Container creation issue:
+    ImagepullBackoff --> Invalid image tag/invalid registry credentials
+    MountVolume Failed--> Non Existing configmap/Non Existing secret
+    CrashLoopBackoff --> out of memory issue/image misconfiguration
+    Runcontainererror --> health-check failure/application startup issue
+14. Where do you store secrets in Kubernetes?
+15. Error codes or diff status codes in k8s and also how do u debug or find what's the issue?
 CreateContainerConfigError: 
 Pending: insufficient resources(namespace limits, pod limits), if affinity rule not match, pv storage
 OOMKilled: if the container or pod exceeds its memory limit, k8s terminate the container

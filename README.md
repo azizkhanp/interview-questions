@@ -391,7 +391,25 @@ https://medium.com/@mesutoezdil/preparation-for-the-k8s-interviews-4f9111cd01e7
     CrashLoopBackoff --> out of memory issue/image misconfiguration
     Runcontainererror --> health-check failure/application startup issue
 14. Where do you store secrets in Kubernetes?
-15. Error codes or diff status codes in k8s and also how do u debug or find what's the issue?
+15. If you want to restart the pods of the production environment which might hit a problem where a container’s not working the way it should. Then restart the deployment by rollout command -
+"kubectl rollout restart deployment my-deployment -n my-namespace"
+
+When you run this command, Kubernetes will gradually terminate and replace your Pods while ensuring some containers stay operational throughout. The rollout’s phased nature lets you keep serving customers while effectively “restarting” your Pods behind the scenes.
+
+Never do this -
+1) Scaling your Deployment down to 0 which will remove all your existing Pods and then Scaling back the Deployment to the actual number
+kubectl scale deployment my-deployment -n my-namespace --replicas=0
+and
+kubectl scale deployment my-deployment -n my-namespace --replicas=3
+
+2) Deleting the pods manually by
+kubectl delete pod my-pod -n my-namespace
+
+After which the replicaSet will get to know that the number of pods is 0 now so Scale it back to the original number.
+The above two methods can create a period of downtime where there are no Pods available to serve your users.
+So, it’s good to initiate a rolling restart which lets you replace a set of Pods without downtime.
+
+16. Error codes or diff status codes in k8s and also how do u debug or find what's the issue?
 CreateContainerConfigError: 
 Pending: insufficient resources(namespace limits, pod limits), if affinity rule not match, pv storage
 OOMKilled: if the container or pod exceeds its memory limit, k8s terminate the container
@@ -429,6 +447,12 @@ VPC components:
   SG acts as a virtual firewall for your instances. They control inbound and outbound traffic based on user-defined rules.
  Network ACL:
     They are subnet-level firewalls that control inbound and outbound traffic at the subnet level.    
+
+AWS --> VPC --> subnet --> SG --> CIDR --> Route table , IAM
+Patching, monitoring,
+
+Azure --> vNET --> subnets --> NSG / ASG --> CIDR
+For example, you might have a VNet that contains multiple subnets, each hosting different types of resources. You can use NSGs to control the traffic between these subnets and from the internet. ASGs can be used to group VMs with similar roles, making it easier to manage and update security rules.
 
 1.Route53 type
 public hosted zone -- traffic is routed on the internet

@@ -93,9 +93,9 @@ OS patch of VM
 6. ls -l | grep -v^a  (it will show all files except letters starting with a)
 7. how to find all empty files or dir and delete them?
     #find . -empty -exec rm -r {} \;
-8. How to redirect error of command into file?
-       to redirect error we need to use 2>
-       to redirect error and output use 2>&1
+8. How to redirect the error of command into a file?
+       to redirect errors we need to use 2>
+       to redirect errors and output use 2>&1
 9.  How to check the user list in a particular group 
      cat /etc/group | grep <Group-name>
 10. we are unable to unmount the file system. What are the reasons behind it

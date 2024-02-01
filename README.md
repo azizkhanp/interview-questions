@@ -202,8 +202,10 @@ ex: cron,sshd
 --> user management, LVM, package management, OS patch
 5. architecture of Linux
 H/w --> kernel --> shell --> utilities
+6. Booting process
+   BIOS --> MBR --> GRUB -->  kernel/initramfs --> init level -->user space initialization --> login prompt --> user interaction
 
-6. if yum update is not pulling lib, how do you resolve the issue? 
+7. if yum update is not pulling lib, how do you resolve the issue? 
 Check Yum Repositories: yum repolist
 Clean Yum Cache: yum clean all / yum update
 Check for Package Availability: yum search <pac_name>
@@ -211,14 +213,14 @@ Check for Package Dependencies: yum deplist <pack_name>
 Examine Yum Logs: less /var/log/yum.log
 Check with the central repo team
 
-7. swap space
-8. paging in linux
-9. DNS:53, SSH:22, FTP:21, DHCP:67,68, Squid:3128, HTTP:80, HTTPS:443, SMTP:25
-10. grep & egrep cmnd usage 
-11. password policy agent in linux
+8. swap space
+9. paging in linux
+10. DNS:53, SSH:22, FTP:21, DHCP:67,68, Squid:3128, HTTP:80, HTTPS:443, SMTP:25
+11. grep & egrep cmnd usage 
+12. password policy agent in linux
 PAM --> Check password quality, reusing the same passwords, password aging, /etc/pam.d/ directory.
 
-12. user not able to log in remote server(SSH)?
+13. user not able to log in remote server(SSH)?
 -ssh is running
 -Check port of SSH
 -User has permission to login to server
@@ -277,6 +279,11 @@ sed -i 's/aziz/Khan/g' <filename> # it will save changes in file
 #it will replace aziz with Khan in 2&3 lines
 sed '2,3 s/aziz/Khan' <filename>
 
+set -x: De-bugging the commands in a shell script
+set +x: To stop debugging
+set -e: script exit immediately if any command fails to run
+set -u: enforces strict variable usage, if the variable is not set value, the script will exit with an error
+
 what would be the result of each command:
 echo $0: Display the current shell-like (bash / sh / csh)
 echo $?: Displays the exit status of the last executed command. (0-succeeded / error - non-zero)
@@ -287,7 +294,7 @@ $@: Treats each positional parameter as a separate word when enclosed in double 
 $*: Treats all positional parameters as a single word when enclosed in double quotes. The arguments are concatenated with the first character of IFS as the separator.
 
 How do you get input from the user in shell scripts?
-read <input>
+Read input: **read** -p "enter a number: " num
 
 Grafana: https://computingforgeeks.com/how-to-install-grafana-on-centos-7/
 prometheus: https://blog.fourninecloud.com/what-is-prometheus-and-how-to-install-and-configure-it-on-linux-server-9b5f88685451

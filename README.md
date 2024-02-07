@@ -670,4 +670,10 @@ How do you read the map if you use count?
 After creating an instance, execute commands on it.
 Can you explain how you deploy your workloads using EKS and GKE?   
 Have you used autoscaling groups in AWS?   
- 
+
+
+ Ansible:
+Handlers: https://medium.com/cloudnloud/how-to-use-handlers-in-ansible-9e62e17c3b61
+Patching: https://medium.com/@sangeetv09/linux-os-patching-using-ansible-playbook-0927e7e92630
+Scenario: https://medium.com/@sushantkapare1717/ansible-senario-based-questions-part-ii-8c5413ec335c
+

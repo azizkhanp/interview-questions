@@ -419,6 +419,7 @@ https://medium.com/@mesutoezdil/preparation-for-the-k8s-interviews-4f9111cd01e7
 -> Limit Access to Kubernetes API
 -> Secure Kubernetes Secrets
 -> Update Kubernetes Regularly
+-> Run kube-bench(tool) for CIS benchmark periodically
 -> Use Network Policies to control traffic between pods and namespaces.
 -> Harden Your Worker Nodes
 -> Backup and Recovery Plan

@@ -187,9 +187,23 @@ S-setuid and non-executable
     logs: grep username /var/log/auth.log
 
 26. what is ACL in Linux?
-27. How do you get the top 10 lines of your file?   
+27. SELinux: https://www.freecodecamp.org/news/securing-linux-servers-with-se-linux/
+28. Linux System Hardening
+-> Enable Strong Authentication like strong password policies and use MFA
+-> Create an SSH keys
+-> Keep the system up to date like regular patching
+-> Install only necessary software
+-> Disable Unnecessary Services
+-> Disable root login
+-> Use Secure remote logins
+-> Give the least Privilege to user accounts
+-> Filesystem security like permissions to files/dir
+-> Enable SELINUX
+-> Enable firewall rules like open necessary ports
+
+30. How do you get the top 10 lines of your file?   
      head -n 10 <FN>
-28. How do you access the live logs of your file, such as TOCA log or Apache do log, to see exactly what is being recorded in the file?  
+31. How do you access the live logs of your file, such as TOCA log or Apache do log, to see exactly what is being recorded in the file?  
      tail -f <FN>
 
 1. Diff b/w bash and dash
@@ -398,7 +412,19 @@ https://medium.com/@mesutoezdil/preparation-for-the-k8s-interviews-4f9111cd01e7
     CrashLoopBackoff --> out of memory issue/image misconfiguration
     Runcontainererror --> health-check failure/application startup issue
 14. Where do you store secrets in Kubernetes?
-15. If you want to restart the pods of the production environment which might hit a problem where a container’s not working the way it should. Then restart the deployment by rollout command -
+15. Kubernetes Security Best Practices 
+
+-> Enable k8s Role-Based access control(RBAC)
+-> Use TLS to protect ETCD
+-> Limit Access to Kubernetes API
+-> Secure Kubernetes Secrets
+-> Update Kubernetes Regularly
+-> Use Network Policies to control traffic between pods and namespaces.
+-> Harden Your Worker Nodes
+-> Backup and Recovery Plan
+-> Implement Image Scanning 
+
+16. If you want to restart the pods of the production environment which might hit a problem where a container’s not working the way it should. Then restart the deployment by rollout command -
 "kubectl rollout restart deployment my-deployment -n my-namespace"
 
 When you run this command, Kubernetes will gradually terminate and replace your Pods while ensuring some containers stay operational throughout. The rollout’s phased nature lets you keep serving customers while effectively “restarting” your Pods behind the scenes.

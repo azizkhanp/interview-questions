@@ -528,6 +528,36 @@ What is sonarqube? why your using it?
 What is code coverage in sonar qube?
 Git branch Strategies?  
 Do you have experience in configuration management tools like Ansible?   
+Ansible playbook error checks 
+  ansible-playbook your_playbook.yml --check: Dry run of playbook, what will happen when play executed
+  ansible-playbook your_playbook.yml --syntax-check:  To check the syntax of playbook 
+  ansible-playbook your_playbook.yml --list-hosts: To check the on which hosts playbook will run 
+  ansible-playbook your_playbook.yml --list-tasks: To check what are tasks playbook will run
+
+if one task failed in the playbook, how to continue other tasks : ignore_errors: true , ignore_unreachable: true
+
+ansible-playbook on distinctive nodes with diff ports and usernames
+
+update the below details in the inventory file
+anisble_port: 
+ansible_user:
+
+Diff b/w copy vs fetch in Ansible
+ Copy: copy files or directories from the control node to the managed nodes.
+ Fetch: fetch files or directories from the managed nodes to the control node.
+
+what is --include in ansible
+ to run more than 1 playbook we use --include option
+
+playbook vs Ad-hoc
+
+Quick and easy
+automate single task
+non-repetitive tasks
+
+multiple tasks
+Repetitive
+Resuable
 
 How to find drift detection 
   1. terraform refresh  or  cronjob - terraform refresh

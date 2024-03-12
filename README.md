@@ -150,7 +150,16 @@ S-setuid and non-executable
 #nice -n 5 cmd
 
 14. how to change the nice value of of process with ID 2264,
-    #renice -20 -p 2264
+ The values typically range from -20 to 19, where -20 is the highest priority and 19 is the lowest.
+ Only the superuser can assign negative values
+
+  To start a process with a lower priority
+  #nice -n 10 <cmd>
+
+  If you’ve already started a process and want to change its priority
+  #renice 10 -p process_id
+
+
 
 15. how will u rollback the packages after patching
 #yum history
@@ -557,8 +566,10 @@ non-repetitive tasks
 
 multiple tasks
 Repetitive
-Resuable
+Reusable
 
+How to run only a particular task from a playbook?
+use tags to run a particular task : ansible-playbook --tags tag1 playbook.yaml
 How to find drift detection 
   1. terraform refresh  or  cronjob - terraform refresh
   2. Create a strict Rule if any IAM user wants to change any resources in AWS manually he/she needs to get approval from a manager

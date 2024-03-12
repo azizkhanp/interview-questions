@@ -536,6 +536,29 @@ How do you write custom actions and integrate them into your pipeline?
 What is sonarqube? why your using it?
 What is code coverage in sonar qube?
 Git branch Strategies?  
+Main
+Develop
+Feature
+Release
+Hotfix
+
+How do discard changes in working dir?
+#git checkout -- <file_name>
+#git checkout -- . 
+
+we have 50 commits in DEVELOP branch out of which only 5 commits need to be pushed in RELEASE branch.
+--> Use git cherry-pick
+#git cherry-pick <commitsha>
+
+Developer has developed an app module in local with 100 commits, but now he wants to push all his changes in remote DEVELOP branch as a single commit?
+# git rebase -i HEAD~3 (last 3 commits)
+what is git stash? 
+  when you want to switch b/w branches but not to commit the code, then we can use git stash to temp save the code
+  Git stash command takes your uncommitted changes and saves them away for later use
+#git stash
+#git stash list
+#git stash pop <stash_name/ID>
+
 Do you have experience in configuration management tools like Ansible?   
 Ansible playbook error checks 
   ansible-playbook your_playbook.yml --check: Dry run of playbook, what will happen when play executed

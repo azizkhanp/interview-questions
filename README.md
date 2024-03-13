@@ -491,6 +491,12 @@ VPC components:
  Network ACL:
     They are subnet-level firewalls that control inbound and outbound traffic at the subnet level.    
 
+Diff b/w NAT gateway vs NAT instance
+https://medium.com/@smt.dubey/aws-nat-gateway-nat-instance-8e31972df1cf
+
+Autoscaling types: 
+https://www.developer.com/web-services/aws-auto-scaling-types-best-practices/
+
 AWS --> VPC --> subnet --> SG --> CIDR --> Route table , IAM
 Patching, monitoring,
 
@@ -527,6 +533,13 @@ How can you instruct your pipeline to schedule a job on a specific node that has
 What are Executors in Jenkins?
   An Executor is just a slot in which to run a job on an agent/node. An agent can have zero or more executors. The number of executors per Agent defines how many concurrent jobs can be run to that agent.
 what is a multi-branch pipeline
+How do you secure the Jenkins server?
+-->Use HTTPS and SSL
+-->Configure user authentication and authorization
+-->Manage and protect your credentials
+-->Update and audit your plugins
+-->Harden your server
+
 how to pass parameters in Jenkins pipeline
 what is trigger in Jenkins
 If your CICD was aborted by you due to it continuously running bez of a parameter issue? when u run again same CICD pipeline what will happen? State-lock file.
@@ -573,6 +586,9 @@ ansible-playbook on distinctive nodes with diff ports and usernames
 update the below details in the inventory file
 anisble_port: 
 ansible_user:
+
+What are Register targets in Ansible?
+  register targets are used to capture the output of tasks or commands and store them in variables.
 
 Diff b/w copy vs fetch in Ansible
  Copy: copy files or directories from the control node to the managed nodes.

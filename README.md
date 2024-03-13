@@ -579,7 +579,22 @@ Ansible playbook error checks
   ansible-playbook your_playbook.yml --list-hosts: To check the on which hosts playbook will run 
   ansible-playbook your_playbook.yml --list-tasks: To check what are tasks playbook will run
 
-if one task failed in the playbook, how to continue other tasks : ignore_errors: true , ignore_unreachable: true
+if one task failed in the playbook, how to continue other tasks : ignore_errors: true, ignore_unreachable: true
+
+Ansible role example: 
+https://www.devopsschool.com/tutorial/ansible/ansible-roles-explained-with-examples.html#example2
+
+forking and serial executions and Ansible?
+https://medium.com/devops-srilanka/difference-between-forks-and-serial-in-ansible-48677ebe3f36
+
+what is import and included in ansible?
+what is facts in ansible?
+
+Ansible roles, and variable precedence follow a specific order
+1. Variables passed to Ansible on the command line using the -e or --extra-vars option override all other variables defined in the playbook
+2. When including a role in a playbook, you can pass variables to the role using the vars parameter.
+3. Variables defined directly in the playbook, vars sections
+4. Variables defined in the role defaults/main.yml file
 
 ansible-playbook on distinctive nodes with diff ports and usernames
 

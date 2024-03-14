@@ -589,6 +589,8 @@ https://medium.com/devops-srilanka/difference-between-forks-and-serial-in-ansibl
 
 what is import and included in ansible?
 what is facts in ansible?
+what is delegate_to in ansible?
+https://www.middlewareinventory.com/blog/ansible-delegate_to/
 
 Ansible roles, and variable precedence follow a specific order
 1. Variables passed to Ansible on the command line using the -e or --extra-vars option override all other variables defined in the playbook

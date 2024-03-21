@@ -547,7 +547,20 @@ Which tool do you use to build Java projects?
 Where will you store your credentials? Username and password for Jenkins, Docker registry, etc.?   
 How do you write custom actions and integrate them into your pipeline? 
 What is sonarqube? why your using it?
-What is code coverage in sonar qube?
+sonarqube : 
+what is debt sonarqube
+Technical debt: The estimated time required to fix all Maintainability Issues/code smells
+
+what is code smells sonarqube
+they indicate weaknesses in design that may be slowing down development or increasing the risk of bugs or failures in the future
+
+what is code coverage sonarqube
+is a measure of how much of the application’s code has been run in testing
+
+what is duplications sonarqube
+detection feature that scans the codebase to identify duplicate or highly similar code fragments 
+
+
 Git branch Strategies?  
 Main
 Develop

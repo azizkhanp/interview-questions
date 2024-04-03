@@ -42,6 +42,27 @@ How to install anything during the provisioning process using Terraform? or what
     destination = "/remote/path/on/instance/file.txt"
   }
 
+How to ssh to deploy VM and run some commands on it.
+Use remote-exec(remote Provisioner)
+
+provisioner "remote-exec" {
+    inline = [
+      "sudo apt-get update",
+      "sudo apt-get install -y nginx",
+      "sudo systemctl start nginx",
+      "sudo systemctl enable nginx"
+    ]
+  }
+
+  connection {
+    type        = "ssh"
+    user        = "adminuser"
+    password    = "Password1234!"
+    host        = azurerm_public_ip.example.ip_address
+  }
+}
+
+
 How would you save any particular resource while destroying the complete infra.? Lifecycle in terraform?
 - lifecycle {
     create_before_destroy = true

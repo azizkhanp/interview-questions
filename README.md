@@ -269,6 +269,9 @@ chattr +i <file_name>
 16. how to check the top 10 space-consuming files/dir in a particular dir
 # du -sh * | sort -rn | head
 
+Cron
+minute (0-59), hour (0-23), day of the month (1-31), month (1-12), and day of the week (0-7)
+
 16. How to check when the was package installed on the server
 - rpm -q -last <package_name>
 - rpm -qf <file_name> # to get package name of filename

@@ -343,7 +343,7 @@ DockerFile
   - FROM: base image
   - WORKDIR: To set the working dir
   - EXPOSE: to expose any ports
-  - ENTRYPOINT: When you start the Docker container, a command or script called ENTRYPOINT is executed.
+  - ENTRYPOINT: When you start the Docker container, a command or script called ENTRYPOINT is executed.(only 1 ENTRYPOINT in DockerFile)
   - ENV: to set environment variables 
   - COPY: copying the files/dir to the image 
   - ADD: Downloading any data from URLs 

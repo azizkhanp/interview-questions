@@ -352,6 +352,26 @@ DockerFile
   - RUN: To run any command
 which instruction the docker image will take if we use both ENTRYPOINT and CMD in DockerFile
    - It takes only the last instruction(ENTRYPOINT or CMD) which mentioned in DockerFile
+
+Diff b/w CMD and ENTRYPOINT
+https://www.bmc.com/blogs/docker-cmd-vs-entrypoint/#:~:text=They%20both%20specify%20programs%20that,as%20arguments%20of%20the%20command.
+  only 1 CMD and ENTRYPOINT in DockerFile
+  CMD can be over wirtten using var's but ENTRYPOINT not
+  If the Dockerfile has multiple CMD instructions, only the last one will take effect.
+  If the Dockerfile has multiple ENTRYPOINT instructions, only the last one will take effect.
+  
+DockerFile:
+ FROM python:3.9
+ WORKDIR /app
+ RUN pip install -r requirements.txt
+ COPY . /app
+ ADD packages /app/pacakges
+ EXPOSE 8080
+ CMD ["python", "app.py"]
+
+ docker build -f DockerFile -t app:1.0.0
+ 
+ 
 How to mount Dir to the container
    
 

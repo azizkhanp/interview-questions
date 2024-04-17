@@ -4,6 +4,17 @@ How to find drift detection
   3. Audit log - Create a Lambda function to send alerts to the team if there is any change for resources managed by Terraform 
        (Like who changed resources IAM user name and timestamp ..)
 
+     terraform apply --refresh-only
+       To update the state file as per the actual state of the deployment(portal)
+terraform state list
+ show list of resources in the state file
+
+terraform state show
+ show list of resources form the state file in JSON fmt
+
+terraform state rm <resource name>
+  remove the resource from the state file
+
 I have created resources using Terraform and deleted some resources manually how to update state-file as per deleted resources
    -- terraform state list
    after the resource is deleted manually from the console, then

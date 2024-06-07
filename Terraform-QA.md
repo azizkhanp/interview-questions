@@ -92,6 +92,7 @@ Variable Declarations: we can define directly in main.tf
 Variable files: variables.tfvars
 Environment Variables: export TF_VAR_region="us-west-2"
 Command-Line Flags: terraform apply -var="region=us-west-2"
+The precedence is given to values passed via CLI arguments. This is followed by values passed using the .tfvars file and lastly, the default values are considered
 
 What will happen when you run the terraform init command? what files will be created? 
 - Backend Configuration: If ur using a remote state then the backend will be initialized

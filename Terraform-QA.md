@@ -83,6 +83,9 @@ How would you save any particular resource while destroying the complete infra.?
 How to destroy particular resources in terraform? 
 - terraform destroy -target=resource_type.resource_name
 
+How to use provider version?
+Its imp to use provider versions in prod env
+
 How to manage terraform data in multiple env?
 Workspace
 re-usable modules

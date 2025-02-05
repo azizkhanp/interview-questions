@@ -432,19 +432,23 @@ https://medium.com/@mesutoezdil/preparation-for-the-k8s-interviews-4f9111cd01e7
       This is particularly useful during deployments or when an application needs time to initialize before accepting traffic.
 
 11. Kubectl describe vs kubectl logs ?
-12. Pod issues:
+12. Types of containers in k8s?
+      i. app(main)container
+      ii. init(helper)container
+      iii. sidecar
+14. Pod issues:
    Resource Crunch
    Node Unavailability
    Persistent volume Unavailability
    Exceeding Resource Quota
    Exceeding Limit Range
-13. Container creation issue:
+15. Container creation issue:
     ImagepullBackoff --> Invalid image tag/invalid registry credentials
     MountVolume Failed--> Non Existing configmap/Non Existing secret
     CrashLoopBackoff --> out of memory issue/image misconfiguration
     Runcontainererror --> health-check failure/application startup issue
-14. Where do you store secrets in Kubernetes?
-15. Kubernetes Security Best Practices 
+16. Where do you store secrets in Kubernetes?
+17. Kubernetes Security Best Practices 
 
 -> Enable k8s Role-Based access control(RBAC)
 -> Use TLS to protect ETCD

@@ -129,14 +129,20 @@ Name = "my-vm-${count.index + 1}"
  for_each: loop (Key = value) (for_each is used when you want to create multiple instances of a resource with distinct configurations.)
            Creating a variable number of instances with different configurations, such as multiple EC2 instances with different AMIs.
             
-for_each = {
-instance1 = { ami = "ami-name"}
-instance2 = { ami = "ami-name"}
-}
-ami = each.value.ami
-tags ={
-Name = each.key
-} 
+resource "google_compute_instance" "vm" {
+ for_each = {
+ "vm1" = { vm_size = "e2-small", zone = "us-central1-a" }
+ "vm2" = { vm_size = "e2-medium", zone = "us-central1-b" }
+ "vm3" = { vm_size = "f1-micro", zone = "us-central1-c" }
+ }
+name = each.key
+machine_type = each.value.vm_size
+zone = each.value.zone
+
+Diff b/w each.key and each.value
+  -> each.key: The key of the item in the map or set, 
+  -> each.value: The value corresponding to that key(maps only)
+  
 
 who created the "terraform.tfstate.backup1" file and under which scenario it is created?
 - When you run terraform destroy then "backup" file will be created, it has all resource info of previously deployed infra using terraform config

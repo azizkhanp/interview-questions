@@ -1,18 +1,18 @@
-How to find drift detection 
+**How to find drift detection** 
   1. terraform refresh  or  cronjob - terraform refresh
   2. Create a strict Rule if any IAM user wants to change any resources in AWS manually he/she needs to get approval from a manager
   3. Audit log - Create a Lambda function to send alerts to the team if there is any change for resources managed by Terraform 
        (Like who changed resources IAM user name and timestamp ..)
 
-     terraform apply --refresh-only
+     **terraform apply --refresh-only**
        To update the state file as per the actual state of the deployment(portal)
-terraform state list
+**terraform state list**
  show list of resources in the state file
 
-terraform state show
+**terraform state show**
  show list of resources form the state file in JSON fmt
 
-terraform state rm <resource name>
+**terraform state rm <resource name>**
   remove the resource from the state file
 
 I have created resources using Terraform and deleted some resources manually how to update state-file as per deleted resources
@@ -118,7 +118,7 @@ terraform taint
   terraform plan
   terraform apply
 
-Explain the various types of META arguments in terraform 
+Explain the various types of META arguments in terraform / How can you create a resource only if another resource exists (conditional resource creation)?
  depends_on: One resource is created before another resource
  count: to deploy multiple resources like EC2 (count is used when you want to create multiple instances of a resource with the same configuration.)
          Creating a fixed number of identical instances, such as multiple EC2 instances in the same subnet.
@@ -129,7 +129,7 @@ Name = "my-vm-${count.index + 1}"
  for_each: loop (Key = value) (for_each is used when you want to create multiple instances of a resource with distinct configurations.)
            Creating a variable number of instances with different configurations, such as multiple EC2 instances with different AMIs.
             
-resource "google_compute_instance" "vm" {
+resource "aws_instance" "vm" {
  for_each = {
  "vm1" = { vm_size = "e2-small", zone = "us-central1-a" }
  "vm2" = { vm_size = "e2-medium", zone = "us-central1-b" }
@@ -181,11 +181,11 @@ null resources in terraform? trigger
  - The trigger is a block inside the null_resource which holds key-value pair.
  
 if a state file is deleted how to recover it?
-what is a dynamic value at run time in terraform?
+what is a dynamic block in terraform?
 How to pass parameters in terraform? 
  - use variables
 
-How to share data b/w 2 modules or 2 remote state files. (terraform_remote_state)
+How to share data b/w 2 modules or 2 remote state files. (terraform_remote_state) or How do you pass variables dynamically between modules?
  vpc.tf
 
 ![image](https://github.com/azizkhanp/interview-questions/assets/26810752/e6822a48-39b9-45c1-9342-34c4f410a0a9)

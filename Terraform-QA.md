@@ -185,7 +185,7 @@ null resources in terraform? trigger
  - The trigger is a block inside the null_resource which holds key-value pair.
  
 if a state file is deleted how to recover it?
-what is a dynamic block in terraform?
+what is a dynamic block in terraform? https://www.cloudbolt.io/terraform-best-practices/terraform-dynamic-blocks/
 How to pass parameters in terraform? 
  - use variables
 

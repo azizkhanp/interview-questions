@@ -102,6 +102,9 @@ What will happen when you run the terraform init command? what files will be cre
 - Plugin Initialization: download plugins mentioned in config files like (AWS,GCP) in a Dir .terraform
 - Lock file creation: .terraform.lock.hcl
 
+what is terraform replace command: it is replace of taint command
+terraform replace -target=<resource_address> 
+
 Explain core terraform end-to-end workflow to deploy and delete resources in AWS
 Workflow:
 - write: like main.tf / provider.tf
@@ -167,6 +170,7 @@ how to export data from one module to another module?
   
 what is # terraform init -reconfigure
   If you want to change the backend of your statefile 
+Conditional Expressions in Terraform
 what is a state file in Terraform?
  - To store information about the resources it has created and their current configuration. (terraform.tfstate)
 

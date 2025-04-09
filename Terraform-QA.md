@@ -1,10 +1,12 @@
 **How to find drift detection** 
   1. terraform refresh  or  cronjob - terraform refresh
+         terraform plan --refresh-only
+           
   2. Create a strict Rule if any IAM user wants to change any resources in AWS manually he/she needs to get approval from a manager
   3. Audit log - Create a Lambda function to send alerts to the team if there is any change for resources managed by Terraform 
        (Like who changed resources IAM user name and timestamp ..)
 
-     **terraform apply --refresh-only**
+**terraform apply --refresh-only**
        To update the state file as per the actual state of the deployment(portal)
 **terraform state list**
  show list of resources in the state file
@@ -90,12 +92,19 @@ How to manage terraform data in multiple env?
 Workspace
 re-usable modules
 
-how may ways variables can provide to terraform?
+**how may ways variables can provide to terraform?**
 Variable Declarations: we can define directly in main.tf
 Variable files: variables.tfvars
 Environment Variables: export TF_VAR_region="us-west-2"
 Command-Line Flags: terraform apply -var="region=us-west-2"
-The precedence is given to values passed via CLI arguments. This is followed by values passed using the .tfvars file and lastly, the default values are considered
+if you have multiple env then use: *.auto.tfvars (dev.auto.tfvars , test.auto.tfvars , prod.auto.tfvars)
+**The precedence **
+  Environment variables 
+  -var option on the command line
+  *.auto.tfvars or *.auto.tfvars.json files
+  -var-file option
+  terraform.tfvars or terraform.tfvars.json
+  variables.tf 
 
 What will happen when you run the terraform init command? what files will be created? 
 - Backend Configuration: If ur using a remote state then the backend will be initialized
@@ -120,7 +129,9 @@ terraform taint
   terraform taint "resource-name"
   terraform plan
   terraform apply
-
+what is local in terraform?
+  https://spacelift.io/blog/terraform-locals 
+  
 Explain the various types of META arguments in terraform / How can you create a resource only if another resource exists (conditional resource creation)?
  depends_on: One resource is created before another resource
  count: to deploy multiple resources like EC2 (count is used when you want to create multiple instances of a resource with the same configuration.)
@@ -180,6 +191,7 @@ what is a state-lock mechanism in terraform?
 
 what do you understand about data_source? 
 what is external-data-block in terraform?
+Can we use multiple providers in terraform file?
 null resources in terraform? trigger
  - Terraform null_resource does not have a state which means it will be executed as soon as you run "terraform apply" command but no state will be saved.
  - The trigger is a block inside the null_resource which holds key-value pair.

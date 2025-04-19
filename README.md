@@ -236,14 +236,18 @@ Check for Package Dependencies: yum deplist <pack_name>
 Examine Yum Logs: less /var/log/yum.log
 Check with the central repo team
 
-8. swap space
-9. paging in linux
-10. DNS:53, SSH:22, FTP:21, DHCP:67,68, Squid:3128, HTTP:80, HTTPS:443, SMTP:25
-11. grep & egrep cmnd usage 
-12. password policy agent in linux
+
+9. swap space
+10.  Diff b/w yum vs rpm 
+     RPM: individual .rpm packages / not resolve dependencies automatically / You must manually install all required dependencies / location depends
+     YUM: Automatically resolves dependencies / Fetches packages and dependencies from online or configured repos / no location req
+11. paging in linux
+12. DNS:53, SSH:22, FTP:21, DHCP:67,68, Squid:3128, HTTP:80, HTTPS:443, SMTP:25
+13. grep & egrep cmnd usage 
+14. password policy agent in linux
 PAM --> Check password quality, reusing the same passwords, password aging, /etc/pam.d/ directory.
 
-13. user not able to log in remote server(SSH)?
+15. user not able to log in remote server(SSH)?
 -ssh is running
 -Check port of SSH
 -User has permission to login to server
@@ -432,7 +436,8 @@ https://medium.com/@mesutoezdil/preparation-for-the-k8s-interviews-4f9111cd01e7
       This is particularly useful during deployments or when an application needs time to initialize before accepting traffic.
 
 11. Kubectl describe vs kubectl logs ?
-12. Types of containers in k8s?
+12. Diff b/w kubectl vs kubelet ? 
+13. Types of containers in k8s?
       i. app(main)container
       ii. init(helper)container
       iii. sidecar
@@ -497,26 +502,33 @@ What if ELB goes down and solution?
 Can I mount single EBS volumes to multiple EC2? NO
 Can I mount multiple EBS volumes to a single EC2? Yes
 How many EBS volumes can we attach to a single EC2? 24
+EFS: 
+ Can EFS be accessed from multiple AZs?  Yes
+ class : stand (frequently accessed data) / IA (Infrequent Access)
+S3 storage types (classes) ? 
 What happens to my data when EC2 is terminated?
 If U check "Delete on termination" then data will be deleted
 Why I'm not able to login EC2?
 Why my Ec2 not pinging?
 VPC components: 
-  vpc : 
-  subnets:
+  **VPC** : 
+  **subnets**:
      IP address range in VPC
      you can create multiple subnets within a VPC, they are associated with different availability zones.
-  route table:
+**Security Groups**:
+  SG acts as a virtual firewall for your instances. They control inbound and outbound traffic based on user-defined rules.
+  **Route table**:
      It controls traffic b/w subnets within VPC and the internet.
      Each subnet must be associated with an RT that specifies the routing rules.
-  Internet Gateway:
+ ** Internet Gateway** :
       Virtual router that connects a VPC to the internet
-  NAT gateway: (N/W Add Translation)
+  **NAT gateway**: (N/W Add Translation)
      It provides internet access for private instances without exposing their IP add to the public
- Security Groups:
-  SG acts as a virtual firewall for your instances. They control inbound and outbound traffic based on user-defined rules.
- Network ACL:
-    They are subnet-level firewalls that control inbound and outbound traffic at the subnet level.    
+ 
+ **Network ACL**:
+    They are subnet-level firewalls that control inbound and outbound traffic at the subnet level.
+**vpc peering** :     
+**transit gateway** : 
 
 Diff b/w NAT gateway vs NAT instance
 https://medium.com/@smt.dubey/aws-nat-gateway-nat-instance-8e31972df1cf

@@ -509,6 +509,8 @@ S3 storage types (classes) ?
 What happens to my data when EC2 is terminated?
 If U check "Delete on termination" then data will be deleted
 Why I'm not able to login EC2?
+**EC2 Launch:**
+Name/tag --> AMI(image) --> Instance type --> key pair --> N/W(VPC / subnet / public IP / SG) --> Storage --> Advance settings
 Why my Ec2 not pinging?
 VPC components: 
   **VPC** : 
@@ -550,6 +552,8 @@ How AWS N/W firewall protect VPC?
 Stateful vs State-less firewall in AWS?
 When do we use spot or on-demand EC2?
 what is ECS? cluster? EC2 vs Fragent?
+
+Created Lambda functions(python) to create a ebs volume snapshot with event bridge / same for delete the ebs snapshot after 7 days 
 
 
 

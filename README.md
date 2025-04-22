@@ -92,7 +92,8 @@ OS patch of VM
 5. to list, all the files opened by a particular PID #lsof -p PID
 6. ls -l | grep -v^a  (it will show all files except letters starting with a)
 7. how to find all empty files or dir and delete them?
-    #find . -empty -exec rm -r {} \;
+    #find /var/tmp -type f -empty -delete  (Dry run  find /path/to/search -type f -empty)
+     find /var/tmp -type d -empty -delete  
 8. How to redirect the error of command into a file?
        to redirect errors we need to use 2>
        to redirect errors and output use 2>&1
@@ -423,37 +424,38 @@ https://medium.com/@mesutoezdil/preparation-for-the-k8s-interviews-4f9111cd01e7
     Namespace Isolation:Each tenant can have its own namespace, and resources within a namespace are isolated from other namespaces.
     RBAC: Implement RBAC to control and restrict access to resources within each namespace.
     Resource Quotas and Limits:Set up resource quotas and limits at the namespace level to prevent resource hogging and ensure fair allocation of resources among tenants.
-8. Horizontal pod scaling? 
-   In Kubernetes, you can use the Horizontal Pod Autoscaler (HPA) to automatically adjust the number of pods in a deployment or replica set based on observed metrics. Common metrics include CPU utilization and custom metrics.
+8. Horizontal pod autoscaling(HPA) vs Virtical pod autoscaling (VPA)? 
+    HPA: no.of pods will adjust / no downtime req
+    VPA: resource of pods will adjust(cpu , mem) / need downtime to restart pods
 
-9. How do you restart your deployment?
+10. How do you restart your deployment?
    kubectl rollout restart deployment <deployment-name>
 
-10. Liveness and readiness in k8s?
+11. Liveness and readiness in k8s?
      The liveness probe is used to determine if a container is alive or not. If a container fails its liveness probe, Kubernetes will restart the container.
       Like: checking whether a specific endpoint in the application is responsive or if the application process is running.
      The readiness probe is used to determine if a container is ready to serve traffic. 
       This is particularly useful during deployments or when an application needs time to initialize before accepting traffic.
 
-11. Kubectl describe vs kubectl logs ?
-12. Diff b/w kubectl vs kubelet ? 
-13. Types of containers in k8s?
+12. Kubectl describe vs kubectl logs ?
+13. Diff b/w kubectl vs kubelet ? 
+14. Types of containers in k8s?
       i. app(main)container
       ii. init(helper)container
       iii. sidecar
-14. Pod issues:
+15. Pod issues:
    Resource Crunch
    Node Unavailability
    Persistent volume Unavailability
    Exceeding Resource Quota
    Exceeding Limit Range
-15. Container creation issue:
+16. Container creation issue:
     ImagepullBackoff --> Invalid image tag/invalid registry credentials
     MountVolume Failed--> Non Existing configmap/Non Existing secret
     CrashLoopBackoff --> out of memory issue/image misconfiguration
     Runcontainererror --> health-check failure/application startup issue
-16. Where do you store secrets in Kubernetes?
-17. Kubernetes Security Best Practices 
+17. Where do you store secrets in Kubernetes?
+18. Kubernetes Security Best Practices 
 
 -> Enable k8s Role-Based access control(RBAC)
 -> Use TLS to protect ETCD

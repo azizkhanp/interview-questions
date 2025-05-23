@@ -430,6 +430,7 @@ https://www.developer.com/web-services/aws-auto-scaling-types-best-practices/
 
 AWS --> VPC --> subnet --> SG --> CIDR --> Route table , IAM
 Patching, monitoring,
+vpc peering: https://medium.com/@vishal.sharma./create-an-aws-vpc-peering-connection-47ce518de870 
 
 Azure --> vNET --> subnets --> NSG / ASG --> CIDR
 For example, you might have a VNet that contains multiple subnets, each hosting different types of resources. You can use NSGs to control the traffic between these subnets and from the internet. ASGs can be used to group VMs with similar roles, making it easier to manage and update security rules.
@@ -454,7 +455,7 @@ what is ECS? cluster? EC2 vs Fragent?
     2.CloudWatch EventBridge Rule – monitors for specific Write API calls (like ModifyInstanceAttribute, PutBucketPolicy, CreateUser, etc.) by IAM users.
     3.Lambda Function – triggered by EventBridge when such changes occur.
 
-
+lambda limitations: https://awsfundamentals.com/blog/lambda-limitations 
 
 
 1.Grafana alert rule

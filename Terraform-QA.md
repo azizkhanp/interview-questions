@@ -5,6 +5,12 @@
   2. Create a strict Rule if any IAM user wants to change any resources in AWS manually he/she needs to get approval from a manager
   3. Audit log - Create a Lambda function to send alerts to the team if there is any change for resources managed by Terraform 
        (Like who changed resources IAM user name and timestamp ..)
+      built a Lambda-based monitoring solution to detect any manual changes to AWS infrastructure that was originally provisioned using Terraform. If a manual change is detected — like an IAM user modifying a resource — a Lambda function is triggered to send an alert email to our team distribution list, including details of the change and the IAM user who made it."
+
+     1.CloudTrail – enabled to log all API activity across the AWS account.
+     2.CloudWatch EventBridge Rule – monitors for specific Write API calls (like ModifyInstanceAttribute, PutBucketPolicy, CreateUser, etc.) by IAM users.
+     3.Lambda Function – triggered by EventBridge when such changes occur.
+   -----------------------------------------------------------------------------------------------------------------------------------------------------------  
 
 **terraform apply --refresh-only**
        To update the state file as per the actual state of the deployment(portal)
@@ -16,11 +22,20 @@
 
 **terraform state rm <resource name>**
   remove the resource from the state file
-
+-------------------------------------------------------------------------------------------------------------------------------------
 I have created resources using Terraform and deleted some resources manually how to update state-file as per deleted resources
    -- terraform state list
    after the resource is deleted manually from the console, then
    -- terraform refresh
+1. Terraform plan
+(to check what resource are missing or changed)
+2.if resources are deleted(need to delete it from state file)
+   Terraform state rm <resource_name>
+3.if resource is deleted by mistake
+   terraform apply
+4. if resources are added
+  terraform import <resource_name><resource_id>
+  ------------------------------------------------------------------------------------------------------------------------------------------
 
 To force unlock lock-id
 #terraform force-unlock <Dynamo-DB-LOCK_ID>
@@ -82,6 +97,7 @@ How would you save any particular resource while destroying the complete infra.?
     prevent_destroy       = true
     ignore_changes        = ["tags"]
   }
+  
 How to destroy particular resources in terraform? 
 - terraform destroy -target=resource_type.resource_name
 

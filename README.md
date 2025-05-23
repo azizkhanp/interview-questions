@@ -443,7 +443,16 @@ Stateful vs State-less firewall in AWS?
 When do we use spot or on-demand EC2?
 what is ECS? cluster? EC2 vs Fragent?
 
-Created Lambda functions(python) to create a ebs volume snapshot with event bridge / same for delete the ebs snapshot after 7 days 
+**Lambda**
+1.Lambda function that runs every 24 hours, checks for untagged AWS resources, and sends an email to your team distribution list via Amazon SES.
+
+2.Created Lambda functions(python) to create a ebs volume snapshot with event bridge / same for delete the ebs snapshot after 7 days 
+
+3.created lambda function to detects the manual changes in aws resources(created by terraform)-- who changed/which resource/time stamp
+
+    1.CloudTrail – enabled to log all API activity across the AWS account.
+    2.CloudWatch EventBridge Rule – monitors for specific Write API calls (like ModifyInstanceAttribute, PutBucketPolicy, CreateUser, etc.) by IAM users.
+    3.Lambda Function – triggered by EventBridge when such changes occur.
 
 
 

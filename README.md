@@ -399,6 +399,14 @@ S3 storage types (classes) ?
 What happens to my data when EC2 is terminated?
 If U check "Delete on termination" then data will be deleted
 Why I'm not able to login EC2?
+
+EC2 instance type used in project: 
+  web/api --> t3.xlarge
+  app(java)--> need more CPU --> m5a.4xlarge
+  batch --> we use arm(graviton2-based) to save cost
+  DB: use memory based r6 type
+  Then spot,RI, we use autoscaling 
+
 **EC2 Launch:**
 Name/tag --> AMI(image) --> Instance type --> key pair --> N/W(VPC / subnet / public IP / SG) --> Storage --> Advance settings
 Why my Ec2 not pinging?

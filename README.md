@@ -286,7 +286,8 @@ minute (0-59), hour (0-23), day of the month (1-31), month (1-12), and day of th
 ls,cp,mv,mkdir,touch,vim,grep,find,locate,top,sar,df
 
 18. write a simple shell script to list all process
- - ps -ef | awk -F " "'{print $2}'
+ - ps -ef | awk '{print $2}'  # print all process ids
+ - ps -ef | wc -l   # count how many process are running 
 
  19. write a script to print only errors from a remote log
       curl <remote_server_name/ip> | grep -i error  
@@ -427,13 +428,15 @@ VPC components:
  
  **Network ACL**:
     They are subnet-level firewalls that control inbound and outbound traffic at the subnet level.
-**vpc peering** :     
+**vpc peering** : 
+      VPC Peering is a networking connection between two Virtual Private Clouds (VPCs) that allows them to communicate with each other privately using private IP addresses
 **transit gateway** : 
+    Connect multiple VPCs and on-premises networks through a single central gateway.
 
 Diff b/w NAT gateway vs NAT instance
 https://medium.com/@smt.dubey/aws-nat-gateway-nat-instance-8e31972df1cf
 
-Autoscaling types: 
+Autoscaling types:  Manual/Dynamic/Scheduled Scaling
 https://www.developer.com/web-services/aws-auto-scaling-types-best-practices/
 
 AWS --> VPC --> subnet --> SG --> CIDR --> Route table , IAM
@@ -443,7 +446,7 @@ vpc peering: https://medium.com/@vishal.sharma./create-an-aws-vpc-peering-connec
 Azure --> vNET --> subnets --> NSG / ASG --> CIDR
 For example, you might have a VNet that contains multiple subnets, each hosting different types of resources. You can use NSGs to control the traffic between these subnets and from the internet. ASGs can be used to group VMs with similar roles, making it easier to manage and update security rules.
 
-1.Route53 type
+1.Route53 type: https://gauravguptacloud.medium.com/aws-route53-records-routing-policies-f3657b01ffa2
 public hosted zone -- traffic is routed on the internet
 private hosted zone -- traffic is routed within an aws vpc
 Latency-based routing in AWS Route53
@@ -464,6 +467,7 @@ what is ECS? cluster? EC2 vs Fragent?
     3.Lambda Function – triggered by EventBridge when such changes occur.
 
 lambda limitations: https://awsfundamentals.com/blog/lambda-limitations 
+lambda layers: https://medium.com/@gowthamshankar09/an-overview-of-aws-lambda-layers-8cf04948e1c4 
 
 
 1.Grafana alert rule
@@ -480,6 +484,17 @@ lambda limitations: https://awsfundamentals.com/blog/lambda-limitations
 What is Tech stack using in your DevOps project?
 Explain the complete CICD process that has been followed in your project.
 what is the flow of your CICD or Steps in Jenkins build?
+1.git checkout
+2.gitguardian secret scan in code
+3. SAST - SonarQube scan(Static Application Security Testing )
+4. maven build
+5. Junit test
+6. Docker image build
+7. Docker image scan using JFROG Xray
+8. Push Docker image to JFROG 
+9. DAST - ZAP(Dynamic Application Security Testing)
+10. Deploy to EKS using ArgoCD
+
 How can you instruct your pipeline to schedule a job on a specific node that has JDK 7.0, when it is only available on one node out of ten? 
 What are Executors in Jenkins?
   An Executor is just a slot in which to run a job on an agent/node. An agent can have zero or more executors. The number of executors per Agent defines how many concurrent jobs can be run to that agent.

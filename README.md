@@ -433,6 +433,18 @@ VPC components:
 **transit gateway** : 
     Connect multiple VPCs and on-premises networks through a single central gateway.
 
+inline policy: 
+   Inline policies are directly attached to a specific user, group, or role.
+Managed Policy: Can be attached to multiple entities
+
+ VPC Endpoint in AWS allows you to privately connect your VPC to supported AWS services and VPC endpoint services without going through the public internet
+If your EC2 instance is in a private subnet (no Internet Gateway/NAT Gateway) and you want it to access S3, the best and secure way is to use a VPC Gateway Endpoint for S3.
+private-link vs vpc-endpoint: 
+
+ALB vs NLB 
+  
+      
+
 Diff b/w NAT gateway vs NAT instance
 https://medium.com/@smt.dubey/aws-nat-gateway-nat-instance-8e31972df1cf
 

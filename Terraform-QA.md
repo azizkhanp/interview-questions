@@ -30,7 +30,7 @@ I have created resources using Terraform and deleted some resources manually how
 1. Terraform plan
 (to check what resource are missing or changed)
 2.if resources are deleted(need to delete it from state file)
-   Terraform state rm <resource_name>
+   terraform state rm <resource_name>
 3.if resource is deleted by mistake
    terraform apply
 4. if resources are added

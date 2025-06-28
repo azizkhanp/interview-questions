@@ -642,3 +642,22 @@ Handlers: https://medium.com/cloudnloud/how-to-use-handlers-in-ansible-9e62e17c3
 Patching: https://medium.com/@sangeetv09/linux-os-patching-using-ansible-playbook-0927e7e92630
 Scenario: https://medium.com/@sushantkapare1717/ansible-senario-based-questions-part-ii-8c5413ec335c
 
+
+
+CI/CD workflow you follow? Kind of Pipelines I Use in Jenkins?
+How Do you Define Pipelines in Jenkins?
+How Do you Invoke Pipelines in Jenkins?
+
+What are Shared Libraries in Jenkins?
+How are Shared Libraries Structured and Written?
+How to Define Shared Libraries in Jenkins?
+
+possible reasons why a Jenkins pipeline runs but the build step doesn’t actually build anything:
+
+what is the purpose of webhook, and how it is used in cicd pipeline?
+
+what is the comand to access a pod and how can u define or crete a k8s class or object?
+
+
+
+

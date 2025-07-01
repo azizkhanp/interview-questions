@@ -442,7 +442,7 @@ If your EC2 instance is in a private subnet (no Internet Gateway/NAT Gateway) an
 private-link vs vpc-endpoint: 
 
 ALB vs NLB 
-  
+  https://blog.cloudcraft.co/alb-vs-nlb-which-aws-load-balancer-fits-your-needs/
       
 
 Diff b/w NAT gateway vs NAT instance

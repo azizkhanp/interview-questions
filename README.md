@@ -446,7 +446,7 @@ ALB vs NLB
       
 
 Diff b/w NAT gateway vs NAT instance
-https://medium.com/@smt.dubey/aws-nat-gateway-nat-instance-8e31972df1cf
+
 
 Autoscaling types:  Manual/Dynamic/Scheduled Scaling
 https://www.developer.com/web-services/aws-auto-scaling-types-best-practices/
